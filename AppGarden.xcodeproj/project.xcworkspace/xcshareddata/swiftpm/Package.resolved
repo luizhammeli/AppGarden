@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "lhhelpers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/luizhammeli/LHHelpers.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "73458c0e7dafe5cb99bfdef93783f5f1c70aac70"
+      }
+    },
+    {
+      "identity" : "lhnetworkclient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/luizhammeli/LHNetworkClient.git",
+      "state" : {
+        "revision" : "b7b767617db5c51d256662aa5a72a2339f28da32",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
