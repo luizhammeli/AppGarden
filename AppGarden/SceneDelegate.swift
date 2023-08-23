@@ -5,6 +5,7 @@
 //  Created by Luiz Diniz Hammerli on 23/08/23.
 //
 
+import LHNetworkClient
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -12,14 +13,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {        
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: ImageGridViewController())
+        window?.rootViewController = UINavigationController(rootViewController: makeSearchImageViewController())
         window?.makeKeyAndVisible()
+    }
+    
+    private func makeSearchImageViewController() -> SearchImageViewController {
+        let client = URLSessionHttpClient()
+        let useCase = RemoteLoadSearchItems(client: client)
+        let presenter = SearchImagePresenter(serchLoader: useCase)
+        let controller = SearchImageViewController(presenter: presenter)
+        presenter.delegate = controller
+        return controller
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

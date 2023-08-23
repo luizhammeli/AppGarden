@@ -1,0 +1,6 @@
+## Strings
+strings:
+  inputs: ./AppGarden/Support/Strings/en.lproj/Localizable.strings
+  outputs:
+    templateName: structured-swift5
+    output: ./AppGarden/Support/Strings/Strings.swift

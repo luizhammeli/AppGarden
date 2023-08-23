@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  AppGarden
+
+  Created by Luiz Diniz Hammerli on 23/08/23.
+  
+*/
+
+"GRID_VIEW_TITLE" = "App Garden";
+"SEARCH_ERROR_TITLE" = "No Results";
+"SEARCH_ERROR_DESCRIPTION" = "Try a new search.";

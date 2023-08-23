@@ -8,10 +8,26 @@
 import LHHelpers
 import UIKit
 
-final class ImageGridViewController: CustomViewController<ImageGridView> {
+final class SearchImageViewController: CustomViewController<SearchImageView> {
+    let presenter: SearchImagePresenterProtocol
+    var searchItems: [SearchImageViewModel] = [] {
+        didSet {
+            customView.collectionView.reloadData()
+        }
+    }
+    
+    init(presenter: SearchImagePresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        setupViews()        
     }
     
     private func setupViews() {
@@ -33,30 +49,35 @@ final class ImageGridViewController: CustomViewController<ImageGridView> {
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "App Garden"
+        navigationItem.title = L10n.gridViewTitle
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
-extension ImageGridViewController: UISearchBarDelegate {    
+extension SearchImageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        presenter.makeSearch(query: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        showError()
     }
 }
 
-extension ImageGridViewController: UICollectionViewDataSource {
+extension SearchImageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return searchItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let url = searchItems[indexPath.item].imageURL
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ImageGridCell
-        cell.set(image: UIImage(named: "test"))
+        cell.set(url: url)
         return cell
     }
 }
 
-extension ImageGridViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: Add flow logic
@@ -76,71 +97,23 @@ extension ImageGridViewController: UICollectionViewDelegate, UICollectionViewDel
     }
 }
 
-final class ImageGridView: UIView {
-    let collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView.backgroundColor = .systemBackground
-        return collectionView
-    }()
-    
-    let searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.obscuresBackgroundDuringPresentation = false
-        return searchController
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
+extension SearchImageViewController: SearchPresenterDelegateProtocol {
+    func view(items: [SearchImageViewModel]) {
+        customView.searchErrorView.isHidden = true
+        self.searchItems = items
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension ImageGridView: CodeView {
-    func buildViewHierarchy() {
-        addSubviews(collectionView)
-    }
-    
-    func setupConstraints() {
-        collectionView.fillSuperview()
+    func showLoader(isLoading: Bool) {
+        customView.searchErrorView.isHidden = true
+        if isLoading {
+            customView.activityIndicator.startAnimating()
+        } else {
+            customView.activityIndicator.stopAnimating()
+        }
     }
     
-    func setupAdditionalConfiguration() {}
-}
-
-final class ImageGridCell: UICollectionViewCell {
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
+    func showError() {
+        searchItems.removeAll()
+        customView.searchErrorView.isHidden = false
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func set(image: UIImage?) {
-        imageView.image = image
-    }
-}
-
-extension ImageGridCell: CodeView {
-    func buildViewHierarchy() {
-        addSubview(imageView)
-    }
-    
-    func setupConstraints() {
-        imageView.fillSuperview()
-    }
-    
-    func setupAdditionalConfiguration() {}
 }

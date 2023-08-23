@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2565A4ED2A96538C0033FEDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4EC2A96538C0033FEDB /* AppDelegate.swift */; };
 		2565A4EF2A96538C0033FEDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4EE2A96538C0033FEDB /* SceneDelegate.swift */; };
-		2565A4F12A96538C0033FEDB /* ImageGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4F02A96538C0033FEDB /* ImageGridViewController.swift */; };
+		2565A4F12A96538C0033FEDB /* SearchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4F02A96538C0033FEDB /* SearchImageViewController.swift */; };
 		2565A4F62A96538E0033FEDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2565A4F52A96538E0033FEDB /* Assets.xcassets */; };
 		2565A4F92A96538E0033FEDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2565A4F72A96538E0033FEDB /* LaunchScreen.storyboard */; };
 		2565A5042A96538E0033FEDB /* AppGardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A5032A96538E0033FEDB /* AppGardenTests.swift */; };
@@ -17,6 +17,15 @@
 		2565A5102A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A50F2A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift */; };
 		25D3046D2A96690F00E4EBE3 /* LHNetworkClient in Frameworks */ = {isa = PBXBuildFile; productRef = 25D3046C2A96690F00E4EBE3 /* LHNetworkClient */; };
 		25D3047C2A96718B00E4EBE3 /* LHHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 25D3047B2A96718B00E4EBE3 /* LHHelpers */; };
+		25D304842A967E2B00E4EBE3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25D304862A967E2B00E4EBE3 /* Localizable.strings */; };
+		25D304882A96815B00E4EBE3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304872A96815B00E4EBE3 /* Strings.swift */; };
+		25D3048A2A96823000E4EBE3 /* ImageGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304892A96823000E4EBE3 /* ImageGridCell.swift */; };
+		25D3048C2A96828400E4EBE3 /* SearchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3048B2A96828400E4EBE3 /* SearchImageView.swift */; };
+		25D304992A9685D400E4EBE3 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304982A9685D400E4EBE3 /* SearchResponse.swift */; };
+		25D3049B2A968B7700E4EBE3 /* RemoteLoadSearchItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3049A2A968B7700E4EBE3 /* RemoteLoadSearchItems.swift */; };
+		25D3049E2A9690C300E4EBE3 /* SearchImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3049D2A9690C300E4EBE3 /* SearchImagePresenter.swift */; };
+		25D304A12A9698E800E4EBE3 /* SearchImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304A02A9698E800E4EBE3 /* SearchImageViewModel.swift */; };
+		25D304A42A96994700E4EBE3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 25D304A32A96994700E4EBE3 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +49,7 @@
 		2565A4E92A96538C0033FEDB /* AppGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2565A4EC2A96538C0033FEDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2565A4EE2A96538C0033FEDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2565A4F02A96538C0033FEDB /* ImageGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridViewController.swift; sourceTree = "<group>"; };
+		2565A4F02A96538C0033FEDB /* SearchImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageViewController.swift; sourceTree = "<group>"; };
 		2565A4F52A96538E0033FEDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2565A4F82A96538E0033FEDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2565A4FA2A96538E0033FEDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +58,14 @@
 		2565A5092A96538E0033FEDB /* AppGardenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppGardenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2565A50D2A96538E0033FEDB /* AppGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenUITests.swift; sourceTree = "<group>"; };
 		2565A50F2A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		25D304852A967E2B00E4EBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		25D304872A96815B00E4EBE3 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		25D304892A96823000E4EBE3 /* ImageGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridCell.swift; sourceTree = "<group>"; };
+		25D3048B2A96828400E4EBE3 /* SearchImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageView.swift; sourceTree = "<group>"; };
+		25D304982A9685D400E4EBE3 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		25D3049A2A968B7700E4EBE3 /* RemoteLoadSearchItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoadSearchItems.swift; sourceTree = "<group>"; };
+		25D3049D2A9690C300E4EBE3 /* SearchImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImagePresenter.swift; sourceTree = "<group>"; };
+		25D304A02A9698E800E4EBE3 /* SearchImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D304A42A96994700E4EBE3 /* SDWebImage in Frameworks */,
 				25D3047C2A96718B00E4EBE3 /* LHHelpers in Frameworks */,
 				25D3046D2A96690F00E4EBE3 /* LHNetworkClient in Frameworks */,
 			);
@@ -101,9 +119,11 @@
 		2565A4EB2A96538C0033FEDB /* AppGarden */ = {
 			isa = PBXGroup;
 			children = (
+				25D304952A96855A00E4EBE3 /* Common */,
+				25D3048D2A96829B00E4EBE3 /* Features */,
+				25D3047F2A967D8300E4EBE3 /* Support */,
 				2565A4EC2A96538C0033FEDB /* AppDelegate.swift */,
 				2565A4EE2A96538C0033FEDB /* SceneDelegate.swift */,
-				2565A4F02A96538C0033FEDB /* ImageGridViewController.swift */,
 				2565A4F52A96538E0033FEDB /* Assets.xcassets */,
 				2565A4F72A96538E0033FEDB /* LaunchScreen.storyboard */,
 				2565A4FA2A96538E0033FEDB /* Info.plist */,
@@ -128,6 +148,124 @@
 			path = AppGardenUITests;
 			sourceTree = "<group>";
 		};
+		25D3047D2A967D6D00E4EBE3 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				25D3049C2A96908A00E4EBE3 /* Presenter */,
+				25D304832A967DD700E4EBE3 /* Controller */,
+				25D3047E2A967D7400E4EBE3 /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		25D3047E2A967D7400E4EBE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				25D304892A96823000E4EBE3 /* ImageGridCell.swift */,
+				25D3048B2A96828400E4EBE3 /* SearchImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		25D3047F2A967D8300E4EBE3 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				25D304802A967D8900E4EBE3 /* Strings */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		25D304802A967D8900E4EBE3 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				25D304872A96815B00E4EBE3 /* Strings.swift */,
+				25D304862A967E2B00E4EBE3 /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		25D304832A967DD700E4EBE3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2565A4F02A96538C0033FEDB /* SearchImageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		25D3048D2A96829B00E4EBE3 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				25D304902A9682A600E4EBE3 /* Detail */,
+				25D3048E2A9682A000E4EBE3 /* Grid */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		25D3048E2A9682A000E4EBE3 /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				25D304932A96853200E4EBE3 /* UseCase */,
+				25D3047D2A967D6D00E4EBE3 /* Presentation */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		25D304902A9682A600E4EBE3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		25D304932A96853200E4EBE3 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				25D3049A2A968B7700E4EBE3 /* RemoteLoadSearchItems.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		25D304942A96854800E4EBE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				25D3049F2A9698D900E4EBE3 /* View */,
+				25D304972A9685C000E4EBE3 /* Response */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		25D304952A96855A00E4EBE3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				25D304942A96854800E4EBE3 /* Models */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		25D304972A9685C000E4EBE3 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				25D304982A9685D400E4EBE3 /* SearchResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		25D3049C2A96908A00E4EBE3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				25D3049D2A9690C300E4EBE3 /* SearchImagePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		25D3049F2A9698D900E4EBE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				25D304A02A9698E800E4EBE3 /* SearchImageViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,6 +285,7 @@
 			packageProductDependencies = (
 				25D3046C2A96690F00E4EBE3 /* LHNetworkClient */,
 				25D3047B2A96718B00E4EBE3 /* LHHelpers */,
+				25D304A32A96994700E4EBE3 /* SDWebImage */,
 			);
 			productName = AppGarden;
 			productReference = 2565A4E92A96538C0033FEDB /* AppGarden.app */;
@@ -223,6 +362,7 @@
 			packageReferences = (
 				25D3046B2A96690F00E4EBE3 /* XCRemoteSwiftPackageReference "LHNetworkClient" */,
 				25D3047A2A96718B00E4EBE3 /* XCRemoteSwiftPackageReference "LHHelpers" */,
+				25D304A22A96994700E4EBE3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 2565A4EA2A96538C0033FEDB /* Products */;
 			projectDirPath = "";
@@ -241,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2565A4F92A96538E0033FEDB /* LaunchScreen.storyboard in Resources */,
+				25D304842A967E2B00E4EBE3 /* Localizable.strings in Resources */,
 				2565A4F62A96538E0033FEDB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,9 +407,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2565A4F12A96538C0033FEDB /* ImageGridViewController.swift in Sources */,
+				25D304992A9685D400E4EBE3 /* SearchResponse.swift in Sources */,
+				25D3048C2A96828400E4EBE3 /* SearchImageView.swift in Sources */,
+				25D3049B2A968B7700E4EBE3 /* RemoteLoadSearchItems.swift in Sources */,
+				2565A4F12A96538C0033FEDB /* SearchImageViewController.swift in Sources */,
+				25D304A12A9698E800E4EBE3 /* SearchImageViewModel.swift in Sources */,
 				2565A4ED2A96538C0033FEDB /* AppDelegate.swift in Sources */,
+				25D304882A96815B00E4EBE3 /* Strings.swift in Sources */,
+				25D3048A2A96823000E4EBE3 /* ImageGridCell.swift in Sources */,
 				2565A4EF2A96538C0033FEDB /* SceneDelegate.swift in Sources */,
+				25D3049E2A9690C300E4EBE3 /* SearchImagePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +459,14 @@
 				2565A4F82A96538E0033FEDB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		25D304862A967E2B00E4EBE3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25D304852A967E2B00E4EBE3 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -612,8 +768,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/luizhammeli/LHNetworkClient.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 		25D3047A2A96718B00E4EBE3 /* XCRemoteSwiftPackageReference "LHHelpers" */ = {
@@ -622,6 +778,14 @@
 			requirement = {
 				branch = main;
 				kind = branch;
+			};
+		};
+		25D304A22A96994700E4EBE3 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -636,6 +800,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 25D3047A2A96718B00E4EBE3 /* XCRemoteSwiftPackageReference "LHHelpers" */;
 			productName = LHHelpers;
+		};
+		25D304A32A96994700E4EBE3 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25D304A22A96994700E4EBE3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
