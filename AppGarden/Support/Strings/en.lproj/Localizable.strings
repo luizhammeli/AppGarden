@@ -7,5 +7,10 @@
 */
 
 "GRID_VIEW_TITLE" = "App Garden";
+"DETAILS_SCREEN_TITLE" = "Details";
 "SEARCH_ERROR_TITLE" = "No Results";
+"IMAGE_TITLE" = "Title";
+"IMAGE_HEIGHT" = "Height";
+"IMAGE_WIDTH" = "Width";
+"IMAGE_DATE" = "Date";
 "SEARCH_ERROR_DESCRIPTION" = "Try a new search.";

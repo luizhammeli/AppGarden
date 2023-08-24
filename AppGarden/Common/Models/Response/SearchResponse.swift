@@ -16,7 +16,7 @@ struct SearchItemReponse: Codable {
     let description: String
     let tags: String
     let author: String
-    let dateTaken: String
+    let dateTaken: Date
     let media: MediaReponse
 
     enum CodingKeys: String, CodingKey {

@@ -9,7 +9,8 @@ import LHHelpers
 import UIKit
 
 final class SearchImageViewController: CustomViewController<SearchImageView> {
-    let presenter: SearchImagePresenterProtocol
+    private let presenter: SearchImagePresenterProtocol
+    
     var searchItems: [SearchImageViewModel] = [] {
         didSet {
             customView.collectionView.reloadData()
@@ -27,7 +28,7 @@ final class SearchImageViewController: CustomViewController<SearchImageView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()        
+        setupViews()
     }
     
     private func setupViews() {
@@ -54,6 +55,8 @@ final class SearchImageViewController: CustomViewController<SearchImageView> {
     }
 }
 
+// MARK: UISearchBarDelegate
+
 extension SearchImageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.makeSearch(query: searchText)
@@ -63,6 +66,8 @@ extension SearchImageViewController: UISearchBarDelegate {
         showError()
     }
 }
+
+// MARK: UISearchBarDelegate
 
 extension SearchImageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -77,25 +82,31 @@ extension SearchImageViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: UICollectionViewDelegate
+
 extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: Add flow logic
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ImageGridCell, let image = cell.image else { return }
+        let presenter = ImageDetailPresenter(image: image, viewModel: searchItems[indexPath.item])
+        navigationController?.pushViewController(ImageDetailViewController(presenter: presenter), animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size: CGFloat = (view.frame.width - 8) / 3
+        let size: CGFloat = (view.frame.width - (Spacing.superSmall * 2)) / Spacing.superSmall
         return CGSize(width: size, height: size)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 4
+        return Spacing.superSmall
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 4
+        return Spacing.superSmall
     }
 }
+
+// MARK: SearchPresenterDelegateProtocol
 
 extension SearchImageViewController: SearchPresenterDelegateProtocol {
     func view(items: [SearchImageViewModel]) {

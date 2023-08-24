@@ -18,6 +18,8 @@ final class ImageGridCell: UICollectionViewCell {
         return imageView
     }()
     
+    var image: UIImage?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -28,7 +30,9 @@ final class ImageGridCell: UICollectionViewCell {
     }
     
     func set(url: URL?) {        
-        imageView.sd_setImage(with: url)
+        imageView.sd_setImage(with: url) { image, _, _, _ in
+            self.image = image
+        }
     }
     
     override func prepareForReuse() {

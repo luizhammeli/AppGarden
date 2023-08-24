@@ -9,9 +9,7 @@ import LHNetworkClient
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {        
         guard let scene = (scene as? UIWindowScene) else { return }
@@ -22,8 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func makeSearchImageViewController() -> SearchImageViewController {
         let client = URLSessionHttpClient()
-        let useCase = RemoteLoadSearchItems(client: client)
-        let presenter = SearchImagePresenter(serchLoader: useCase)
+        let useCase: LoadSearchItems = RemoteLoadSearchItems(client: client)
+        let decorator = MainQueueDispatchDecorator(instance: useCase)
+        let presenter = SearchImagePresenter(serchLoader: decorator)
         let controller = SearchImageViewController(presenter: presenter)
         presenter.delegate = controller
         return controller
@@ -56,7 +55,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
