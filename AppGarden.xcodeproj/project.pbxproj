@@ -40,6 +40,11 @@
 		25D304C72A97DEB900E4EBE3 /* DetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304C62A97DEB900E4EBE3 /* DetailRowView.swift */; };
 		25D304C92A97DEDE00E4EBE3 /* DetailInfoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304C82A97DEDE00E4EBE3 /* DetailInfoContainerView.swift */; };
 		25D304CB2A97E1C900E4EBE3 /* HTMLSizeMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304CA2A97E1C900E4EBE3 /* HTMLSizeMapper.swift */; };
+		25D304CE2A97F05E00E4EBE3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304CD2A97F05E00E4EBE3 /* Coordinator.swift */; };
+		25D304D12A97F0C000E4EBE3 /* SearchImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304D02A97F0C000E4EBE3 /* SearchImageCoordinator.swift */; };
+		25D304D42A97F2BD00E4EBE3 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304D32A97F2BD00E4EBE3 /* DependencyContainer.swift */; };
+		25D304D62A97F72900E4EBE3 /* SearchImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304D52A97F72800E4EBE3 /* SearchImageFactory.swift */; };
+		25D304D92A97F85F00E4EBE3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 25D304D82A97F85F00E4EBE3 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +99,10 @@
 		25D304C62A97DEB900E4EBE3 /* DetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRowView.swift; sourceTree = "<group>"; };
 		25D304C82A97DEDE00E4EBE3 /* DetailInfoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoContainerView.swift; sourceTree = "<group>"; };
 		25D304CA2A97E1C900E4EBE3 /* HTMLSizeMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLSizeMapper.swift; sourceTree = "<group>"; };
+		25D304CD2A97F05E00E4EBE3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		25D304D02A97F0C000E4EBE3 /* SearchImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageCoordinator.swift; sourceTree = "<group>"; };
+		25D304D32A97F2BD00E4EBE3 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		25D304D52A97F72800E4EBE3 /* SearchImageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D304D92A97F85F00E4EBE3 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +141,7 @@
 				2565A5022A96538E0033FEDB /* AppGardenTests */,
 				2565A50C2A96538E0033FEDB /* AppGardenUITests */,
 				2565A4EA2A96538C0033FEDB /* Products */,
+				25D304D72A97F85F00E4EBE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +245,7 @@
 		25D3048E2A9682A000E4EBE3 /* Grid */ = {
 			isa = PBXGroup;
 			children = (
+				25D304CF2A97F0A800E4EBE3 /* Flow */,
 				25D304AA2A96CE9300E4EBE3 /* Extension */,
 				25D304932A96853200E4EBE3 /* UseCase */,
 				25D3047D2A967D6D00E4EBE3 /* Presentation */,
@@ -270,6 +282,8 @@
 		25D304952A96855A00E4EBE3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				25D304D22A97F2A900E4EBE3 /* DependencyContainer */,
+				25D304CC2A97F04C00E4EBE3 /* Protocols */,
 				25D304A72A96CE7300E4EBE3 /* Helpers */,
 				25D304942A96854800E4EBE3 /* Models */,
 				25D304B22A97780B00E4EBE3 /* DomainError.swift */,
@@ -388,6 +402,38 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		25D304CC2A97F04C00E4EBE3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				25D304CD2A97F05E00E4EBE3 /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		25D304CF2A97F0A800E4EBE3 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				25D304D02A97F0C000E4EBE3 /* SearchImageCoordinator.swift */,
+				25D304D52A97F72800E4EBE3 /* SearchImageFactory.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		25D304D22A97F2A900E4EBE3 /* DependencyContainer */ = {
+			isa = PBXGroup;
+			children = (
+				25D304D32A97F2BD00E4EBE3 /* DependencyContainer.swift */,
+			);
+			path = DependencyContainer;
+			sourceTree = "<group>";
+		};
+		25D304D72A97F85F00E4EBE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -427,6 +473,9 @@
 				2565A5012A96538E0033FEDB /* PBXTargetDependency */,
 			);
 			name = AppGardenTests;
+			packageProductDependencies = (
+				25D304D82A97F85F00E4EBE3 /* SDWebImage */,
+			);
 			productName = AppGardenTests;
 			productReference = 2565A4FF2A96538E0033FEDB /* AppGardenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -545,12 +594,16 @@
 				25D304882A96815B00E4EBE3 /* Strings.swift in Sources */,
 				25D3048A2A96823000E4EBE3 /* ImageGridCell.swift in Sources */,
 				2565A4EF2A96538C0033FEDB /* SceneDelegate.swift in Sources */,
+				25D304D42A97F2BD00E4EBE3 /* DependencyContainer.swift in Sources */,
 				25D304AC2A96CEB500E4EBE3 /* MainQueueDispatchDecorator+LoadSearchItems.swift in Sources */,
 				25D304A62A96CD6000E4EBE3 /* SearchErrorView.swift in Sources */,
+				25D304D12A97F0C000E4EBE3 /* SearchImageCoordinator.swift in Sources */,
 				25D304BD2A97ABE500E4EBE3 /* ImageDetailPresenter.swift in Sources */,
 				25D304B52A97966E00E4EBE3 /* ImageDetailViewController.swift in Sources */,
 				25D304CB2A97E1C900E4EBE3 /* HTMLSizeMapper.swift in Sources */,
 				25D304B32A97780B00E4EBE3 /* DomainError.swift in Sources */,
+				25D304D62A97F72900E4EBE3 /* SearchImageFactory.swift in Sources */,
+				25D304CE2A97F05E00E4EBE3 /* Coordinator.swift in Sources */,
 				25D3049E2A9690C300E4EBE3 /* SearchImagePresenter.swift in Sources */,
 				25D304BB2A97992000E4EBE3 /* ImageDetailView.swift in Sources */,
 			);
@@ -795,9 +848,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LuizHammerli.AppGardenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppGarden.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppGarden";
 			};
 			name = Debug;
@@ -815,9 +871,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LuizHammerli.AppGardenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppGarden.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppGarden";
 			};
 			name = Release;
@@ -833,9 +892,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LuizHammerli.AppGardenUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = AppGarden;
 			};
 			name = Debug;
@@ -851,9 +913,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LuizHammerli.AppGardenUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = AppGarden;
 			};
 			name = Release;
@@ -938,6 +1003,11 @@
 			productName = LHHelpers;
 		};
 		25D304A32A96994700E4EBE3 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25D304A22A96994700E4EBE3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		25D304D82A97F85F00E4EBE3 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 25D304A22A96994700E4EBE3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;

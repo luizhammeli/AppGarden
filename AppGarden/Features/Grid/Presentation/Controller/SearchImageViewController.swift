@@ -9,6 +9,7 @@ import LHHelpers
 import UIKit
 
 final class SearchImageViewController: CustomViewController<SearchImageView> {
+    private let coordinator: SearchImageCoordinator
     private let presenter: SearchImagePresenterProtocol
     
     var searchItems: [SearchImageViewModel] = [] {
@@ -17,8 +18,9 @@ final class SearchImageViewController: CustomViewController<SearchImageView> {
         }
     }
     
-    init(presenter: SearchImagePresenterProtocol) {
+    init(presenter: SearchImagePresenterProtocol, coordinator: SearchImageCoordinator) {
         self.presenter = presenter
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -87,9 +89,8 @@ extension SearchImageViewController: UICollectionViewDataSource {
 extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ImageGridCell, let image = cell.image else { return }
-        let presenter = ImageDetailPresenter(image: image, viewModel: searchItems[indexPath.item])
-        navigationController?.pushViewController(ImageDetailViewController(presenter: presenter), animated: true)
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ImageGridCell, let image = cell.image else { return }        
+        coordinator.goToDetail(image: image, viewModel: searchItems[indexPath.item])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

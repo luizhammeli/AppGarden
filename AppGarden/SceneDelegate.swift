@@ -5,7 +5,6 @@
 //  Created by Luiz Diniz Hammerli on 23/08/23.
 //
 
-import LHNetworkClient
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -14,18 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {        
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: makeSearchImageViewController())
         window?.makeKeyAndVisible()
-    }
-    
-    private func makeSearchImageViewController() -> SearchImageViewController {
-        let client = URLSessionHttpClient()
-        let useCase: LoadSearchItems = RemoteLoadSearchItems(client: client)
-        let decorator = MainQueueDispatchDecorator(instance: useCase)
-        let presenter = SearchImagePresenter(serchLoader: decorator)
-        let controller = SearchImageViewController(presenter: presenter)
-        presenter.delegate = controller
-        return controller
+
+        let coordinator = SearchImageCoordinator(factory: DependencyContainer(), window: window)
+        coordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
