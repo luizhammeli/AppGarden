@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		250A715B2A98442A00B03B61 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250A715A2A98442A00B03B61 /* HTTPClientSpy.swift */; };
 		2527BA982A9926E200C58948 /* DateFormatterExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527BA972A9926E200C58948 /* DateFormatterExtensionTests.swift */; };
+		2527BA9E2A992D1D00C58948 /* SearchImageCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527BA9D2A992D1D00C58948 /* SearchImageCoordinatorTests.swift */; };
+		2527BAA02A993A3700C58948 /* NavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527BA9F2A993A3700C58948 /* NavigationControllerSpy.swift */; };
 		25310D822A9909E50042D18D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25310D812A9909E50042D18D /* Models.swift */; };
 		2565A4ED2A96538C0033FEDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4EC2A96538C0033FEDB /* AppDelegate.swift */; };
 		2565A4EF2A96538C0033FEDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4EE2A96538C0033FEDB /* SceneDelegate.swift */; };
@@ -77,6 +79,8 @@
 /* Begin PBXFileReference section */
 		250A715A2A98442A00B03B61 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		2527BA972A9926E200C58948 /* DateFormatterExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensionTests.swift; sourceTree = "<group>"; };
+		2527BA9D2A992D1D00C58948 /* SearchImageCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageCoordinatorTests.swift; sourceTree = "<group>"; };
+		2527BA9F2A993A3700C58948 /* NavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerSpy.swift; sourceTree = "<group>"; };
 		25310D812A9909E50042D18D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2565A4E92A96538C0033FEDB /* AppGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2565A4EC2A96538C0033FEDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 		250A71572A982F2800B03B61 /* Grid */ = {
 			isa = PBXGroup;
 			children = (
+				2527BA9C2A992C6F00C58948 /* Flow */,
 				25D9327C2A991A1600157F27 /* Extension */,
 				25AC1F3F2A98D0980068FF4D /* Presenter */,
 				250A71582A982F5800B03B61 /* UseCase */,
@@ -187,8 +192,17 @@
 				250A715A2A98442A00B03B61 /* HTTPClientSpy.swift */,
 				259CC8662A990E220099A549 /* DelegateSpy.swift */,
 				259CC8682A990E480099A549 /* LoadSearchItemsSpy.swift */,
+				2527BA9F2A993A3700C58948 /* NavigationControllerSpy.swift */,
 			);
 			path = Spy;
+			sourceTree = "<group>";
+		};
+		2527BA9C2A992C6F00C58948 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				2527BA9D2A992D1D00C58948 /* SearchImageCoordinatorTests.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 		25310D802A9909DC0042D18D /* TestHelpers */ = {
@@ -717,9 +731,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2527BA9E2A992D1D00C58948 /* SearchImageCoordinatorTests.swift in Sources */,
 				259CC86C2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift in Sources */,
 				2565A5042A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift in Sources */,
 				2527BA982A9926E200C58948 /* DateFormatterExtensionTests.swift in Sources */,
+				2527BAA02A993A3700C58948 /* NavigationControllerSpy.swift in Sources */,
 				259D0F4B2A99240D00C9BFB4 /* HTMLSizeMapperTests.swift in Sources */,
 				25D304DC2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift in Sources */,
 				259CC8692A990E480099A549 /* LoadSearchItemsSpy.swift in Sources */,
