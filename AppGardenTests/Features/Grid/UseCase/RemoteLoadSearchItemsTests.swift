@@ -58,6 +58,9 @@ private extension RemoteLoadSearchItemsTests {
         let clientSpy = HTTPClientSpy()
         let sut = RemoteLoadSearchItems(client: clientSpy, baseURL: baseURL)
         
+        trackForMemoryLeak(for: clientSpy)
+        trackForMemoryLeak(for: sut)
+        
         return (sut, clientSpy)
     }
     

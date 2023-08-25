@@ -46,6 +46,7 @@
 		25D304D42A97F2BD00E4EBE3 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304D32A97F2BD00E4EBE3 /* DependencyContainer.swift */; };
 		25D304D62A97F72900E4EBE3 /* SearchImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304D52A97F72800E4EBE3 /* SearchImageFactory.swift */; };
 		25D304D92A97F85F00E4EBE3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 25D304D82A97F85F00E4EBE3 /* SDWebImage */; };
+		25D304DC2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304DB2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		25D304D02A97F0C000E4EBE3 /* SearchImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageCoordinator.swift; sourceTree = "<group>"; };
 		25D304D32A97F2BD00E4EBE3 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		25D304D52A97F72800E4EBE3 /* SearchImageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageFactory.swift; sourceTree = "<group>"; };
+		25D304DB2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeak.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 		2565A5022A96538E0033FEDB /* AppGardenTests */ = {
 			isa = PBXGroup;
 			children = (
+				25D304DA2A98CD4E00E4EBE3 /* Extensions */,
 				250A71562A982F1C00B03B61 /* Features */,
 			);
 			path = AppGardenTests;
@@ -469,6 +472,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		25D304DA2A98CD4E00E4EBE3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				25D304DB2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -649,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2565A5042A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift in Sources */,
+				25D304DC2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift in Sources */,
 				250A715B2A98442A00B03B61 /* HTTPClientSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
