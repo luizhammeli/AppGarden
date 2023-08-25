@@ -15,7 +15,7 @@ protocol SearchImageFactory {
 extension DependencyContainer: SearchImageFactory {
     func makeSearchImageViewController(coordinator: SearchImageCoordinator) -> SearchImageViewController {
         let client = URLSessionHttpClient()
-        let useCase: LoadSearchItems = RemoteLoadSearchItems(client: client)
+        let useCase = RemoteLoadSearchItems(client: client)
         let decorator = MainQueueDispatchDecorator(instance: useCase)
         let presenter = SearchImagePresenter(serchLoader: decorator)
         let controller = SearchImageViewController(presenter: presenter, coordinator: coordinator)

@@ -45,7 +45,7 @@ final class RemoteLoadSearchItemsTests: XCTestCase {
     
     func test_search_shouldSucceedIfClientCompletesWithSuccess() {
         let (sut, spy) = makeSUT()
-        let expectedData = makeSearchResponse()
+        let expectedData = makeFakeSearchResponse()
         
         expect(sut: sut, with: .success(expectedData.items)) {
             spy.complete(with: .success(expectedData))
@@ -62,16 +62,6 @@ private extension RemoteLoadSearchItemsTests {
         trackForMemoryLeak(for: sut)
         
         return (sut, clientSpy)
-    }
-    
-    func makeSearchResponse() -> SearchResponse {
-        let item = SearchItemResponse(title: "title",
-                                      description: "desc",
-                                      tags: "1",
-                                      author: "auth",
-                                      dateTaken: Date(),
-                                      media: .init(imageURL: "https://test.com"))
-        return .init(items: [item])
     }
     
     func expect(sut: RemoteLoadSearchItems,

@@ -9,6 +9,18 @@ import XCTest
 @testable import AppGarden
 
 final class SearchImagePresenterTests: XCTestCase {
+    func test_makeSearch_shouldSendCorrectQueryValue() {
+        // Given
+        let query = "test"
+        let (sut, spy) = makeSUT()
+        
+        // When
+        sut.makeSearch(query: query)
+        
+        // Then
+        XCTAssertEqual(spy.queries, [query])
+    }
+
     func test_makeSearch_shouldCompleteWithErrorWithEmpryQuery() {
         // Given
         let delegate = DelegateSpy()
@@ -63,19 +75,21 @@ final class SearchImagePresenterTests: XCTestCase {
     func test_makeSearch_shouldSucceedIfRequestFinishedWithValidData() {
         // Given
         let delegate = DelegateSpy()
+        let fakeItem = [makeFakeSearchItemResponse()]
+        let expectedResult = fakeItem.map { makeFakeSearchImageViewModel(with: $0) }
         let (sut, spy) = makeSUT(delegate: delegate)
         
         // When
         sut.makeSearch(query: "test")
-        spy.complete(with: .success([]))
+        spy.complete(with: .success(fakeItem))
         
         // Then
-        //XCTAssertEqual(delegate.messages, [.loader(isLoading: true), .loader(isLoading: false), .error])
+        XCTAssertEqual(delegate.messages, [.loader(isLoading: true), .loader(isLoading: false), .view(items: expectedResult)])
     }
 }
 
 private extension SearchImagePresenterTests {
-    func makeSUT(delegate: DelegateSpy) -> (SearchImagePresenter, LoadSearchItemsSpy) {
+    func makeSUT(delegate: DelegateSpy = DelegateSpy()) -> (SearchImagePresenter, LoadSearchItemsSpy) {
         let spy = LoadSearchItemsSpy()
         let sut = SearchImagePresenter(serchLoader: spy)
         sut.delegate = delegate
@@ -84,39 +98,5 @@ private extension SearchImagePresenterTests {
         trackForMemoryLeak(for: sut)
         
         return (sut, spy)
-    }
-}
-
-final class LoadSearchItemsSpy: LoadSearchItems {
-    var completions: [(LoadSearchItems.Result) -> Void] = []
-
-    func search(query: String, completion: @escaping (LoadSearchItems.Result) -> Void) {
-        completions.append(completion)
-    }
-    
-    func complete(with result: Result<[AppGarden.SearchItemResponse], AppGarden.DomainError>, at index: Int = 0) {
-        completions[index](result)
-    }
-}
-
-enum DelegateMessage: Equatable {
-    case view(items: [AppGarden.SearchImageViewModel])
-    case loader(isLoading: Bool)
-    case error
-}
-
-final class DelegateSpy: SearchPresenterDelegateProtocol {
-    var messages: [DelegateMessage] = []
-    
-    func view(items: [AppGarden.SearchImageViewModel]) {
-        messages.append(.view(items: items))
-    }
-    
-    func showLoader(isLoading: Bool) {
-        messages.append(.loader(isLoading: isLoading))
-    }
-    
-    func showError() {
-        messages.append(.error)
     }
 }
