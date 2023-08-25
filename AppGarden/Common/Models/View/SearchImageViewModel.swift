@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SearchImageViewModel {
+struct SearchImageViewModel: Equatable {
     let imageURL: URL?
     let size: CGSize
     let title: String

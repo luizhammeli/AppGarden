@@ -1,0 +1,46 @@
+{
+  "configurations" : [
+    {
+      "id" : "BC2DC569-76DD-4EBD-8942-269A7D094C5E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:AppGarden.xcodeproj",
+          "identifier" : "2565A4E82A96538C0033FEDB",
+          "name" : "AppGarden"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:AppGarden.xcodeproj",
+      "identifier" : "2565A4E82A96538C0033FEDB",
+      "name" : "AppGarden"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:AppGarden.xcodeproj",
+        "identifier" : "2565A4FE2A96538E0033FEDB",
+        "name" : "AppGardenTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:AppGarden.xcodeproj",
+        "identifier" : "2565A5082A96538E0033FEDB",
+        "name" : "AppGardenUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

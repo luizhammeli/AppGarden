@@ -82,6 +82,7 @@
 		2565A50D2A96538E0033FEDB /* AppGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenUITests.swift; sourceTree = "<group>"; };
 		2565A50F2A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		25AC1F402A98D0A00068FF4D /* SearchImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImagePresenter.swift; sourceTree = "<group>"; };
+		25AC1F422A98D2B60068FF4D /* AppGarden.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppGarden.xctestplan; sourceTree = "<group>"; };
 		25D304852A967E2B00E4EBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		25D304872A96815B00E4EBE3 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		25D304892A96823000E4EBE3 /* ImageGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridCell.swift; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		2565A4E02A96538C0033FEDB = {
 			isa = PBXGroup;
 			children = (
+				25AC1F422A98D2B60068FF4D /* AppGarden.xctestplan */,
 				2565A4EB2A96538C0033FEDB /* AppGarden */,
 				2565A5022A96538E0033FEDB /* AppGardenTests */,
 				2565A50C2A96538E0033FEDB /* AppGardenUITests */,

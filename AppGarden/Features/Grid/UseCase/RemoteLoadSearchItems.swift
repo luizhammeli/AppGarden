@@ -9,7 +9,8 @@ import Foundation
 import LHNetworkClient
 
 protocol LoadSearchItems {
-    func search(query: String, completion: @escaping (Result<[SearchItemResponse], DomainError>) -> Void)
+    typealias Result = Swift.Result<[SearchItemResponse], DomainError>
+    func search(query: String, completion: @escaping (Result) -> Void)
 }
 
 final class RemoteLoadSearchItems: LoadSearchItems {
@@ -21,7 +22,7 @@ final class RemoteLoadSearchItems: LoadSearchItems {
         self.client = client
     }
     
-    func search(query: String, completion: @escaping (Result<[SearchItemResponse], DomainError>) -> Void) {
+    func search(query: String, completion: @escaping (LoadSearchItems.Result) -> Void) {
         guard let url = URL(string: baseURL) else { completion(.failure(.unexpected)); return }
         let provider = SearchProvider(url: url, query: query)
 
