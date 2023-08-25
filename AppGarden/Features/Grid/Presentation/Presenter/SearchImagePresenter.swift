@@ -48,7 +48,7 @@ final class SearchImagePresenter: SearchImagePresenterProtocol {
         }
     }
     
-    private func mapSuccessResult(items: [SearchItemReponse]) -> [SearchImageViewModel] {
+    private func mapSuccessResult(items: [SearchItemResponse]) -> [SearchImageViewModel] {
         return items.map { item in
             let url = URL(string: item.media.imageURL)
             let size = HTMLSizeMapper.map(description: item.description)

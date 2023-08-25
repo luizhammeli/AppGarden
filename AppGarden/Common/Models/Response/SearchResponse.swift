@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct SearchResponse: Codable {
-    let items: [SearchItemReponse]
+struct SearchResponse: Codable, Equatable {
+    let items: [SearchItemResponse]
 }
 
-struct SearchItemReponse: Codable {
+struct SearchItemResponse: Codable, Equatable {
     let title: String
     let description: String
     let tags: String
@@ -25,7 +25,7 @@ struct SearchItemReponse: Codable {
     }
 }
 
-struct MediaReponse: Codable {
+struct MediaReponse: Codable, Equatable {
     let imageURL: String
     
     enum CodingKeys: String, CodingKey {        

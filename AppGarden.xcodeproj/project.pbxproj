@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250A715B2A98442A00B03B61 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250A715A2A98442A00B03B61 /* HTTPClientSpy.swift */; };
 		2565A4ED2A96538C0033FEDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4EC2A96538C0033FEDB /* AppDelegate.swift */; };
 		2565A4EF2A96538C0033FEDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4EE2A96538C0033FEDB /* SceneDelegate.swift */; };
 		2565A4F12A96538C0033FEDB /* SearchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4F02A96538C0033FEDB /* SearchImageViewController.swift */; };
 		2565A4F62A96538E0033FEDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2565A4F52A96538E0033FEDB /* Assets.xcassets */; };
 		2565A4F92A96538E0033FEDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2565A4F72A96538E0033FEDB /* LaunchScreen.storyboard */; };
-		2565A5042A96538E0033FEDB /* AppGardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A5032A96538E0033FEDB /* AppGardenTests.swift */; };
+		2565A5042A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A5032A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift */; };
 		2565A50E2A96538E0033FEDB /* AppGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A50D2A96538E0033FEDB /* AppGardenUITests.swift */; };
 		2565A5102A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A50F2A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift */; };
 		25D3046D2A96690F00E4EBE3 /* LHNetworkClient in Frameworks */ = {isa = PBXBuildFile; productRef = 25D3046C2A96690F00E4EBE3 /* LHNetworkClient */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250A715A2A98442A00B03B61 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		2565A4E92A96538C0033FEDB /* AppGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2565A4EC2A96538C0033FEDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2565A4EE2A96538C0033FEDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 		2565A4F82A96538E0033FEDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2565A4FA2A96538E0033FEDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2565A4FF2A96538E0033FEDB /* AppGardenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppGardenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2565A5032A96538E0033FEDB /* AppGardenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenTests.swift; sourceTree = "<group>"; };
+		2565A5032A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoadSearchItemsTests.swift; sourceTree = "<group>"; };
 		2565A5092A96538E0033FEDB /* AppGardenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppGardenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2565A50D2A96538E0033FEDB /* AppGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenUITests.swift; sourceTree = "<group>"; };
 		2565A50F2A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -134,6 +136,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250A71562A982F1C00B03B61 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				250A71572A982F2800B03B61 /* Grid */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		250A71572A982F2800B03B61 /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				250A71592A98441F00B03B61 /* Spy */,
+				250A71582A982F5800B03B61 /* UseCase */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		250A71582A982F5800B03B61 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				2565A5032A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		250A71592A98441F00B03B61 /* Spy */ = {
+			isa = PBXGroup;
+			children = (
+				250A715A2A98442A00B03B61 /* HTTPClientSpy.swift */,
+			);
+			path = Spy;
+			sourceTree = "<group>";
+		};
 		2565A4E02A96538C0033FEDB = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +209,7 @@
 		2565A5022A96538E0033FEDB /* AppGardenTests */ = {
 			isa = PBXGroup;
 			children = (
-				2565A5032A96538E0033FEDB /* AppGardenTests.swift */,
+				250A71562A982F1C00B03B61 /* Features */,
 			);
 			path = AppGardenTests;
 			sourceTree = "<group>";
@@ -613,7 +648,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2565A5042A96538E0033FEDB /* AppGardenTests.swift in Sources */,
+				2565A5042A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift in Sources */,
+				250A715B2A98442A00B03B61 /* HTTPClientSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

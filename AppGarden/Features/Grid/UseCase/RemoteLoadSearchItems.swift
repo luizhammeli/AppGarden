@@ -9,20 +9,22 @@ import Foundation
 import LHNetworkClient
 
 protocol LoadSearchItems {
-    func search(query: String, completion: @escaping (Result<[SearchItemReponse], DomainError>) -> Void)
+    func search(query: String, completion: @escaping (Result<[SearchItemResponse], DomainError>) -> Void)
 }
 
 final class RemoteLoadSearchItems: LoadSearchItems {
     private let client: HTTPClient
+    private let baseURL: String
     
-    init(client: HTTPClient) {
+    init(client: HTTPClient, baseURL: String = Enviroment.baseURL) {
+        self.baseURL = baseURL
         self.client = client
     }
     
-    func search(query: String, completion: @escaping (Result<[SearchItemReponse], DomainError>) -> Void) {
-        guard let url = URL(string: Enviroment.baseURL) else { completion(.failure(.unexpected)); return }
-        
+    func search(query: String, completion: @escaping (Result<[SearchItemResponse], DomainError>) -> Void) {
+        guard let url = URL(string: baseURL) else { completion(.failure(.unexpected)); return }
         let provider = SearchProvider(url: url, query: query)
+
         client.fetch(provider: provider) { result in
             let result: Result<SearchResponse, HttpError> = result
             switch result {
