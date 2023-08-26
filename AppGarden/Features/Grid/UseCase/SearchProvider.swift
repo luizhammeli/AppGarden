@@ -11,6 +11,7 @@ import LHNetworkClient
 struct SearchProvider: HttpClientProvider {
     var url: URL
     var method: LHNetworkClient.Method
+    var cancelPreviousRequests: Bool = true
     let query: String
     
     init(url: URL, query: String) {
