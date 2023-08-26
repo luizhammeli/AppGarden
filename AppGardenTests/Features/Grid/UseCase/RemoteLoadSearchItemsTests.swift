@@ -11,11 +11,14 @@ import XCTest
 
 final class RemoteLoadSearchItemsTests: XCTestCase {
     func test_search_shouldSendCorrectHTTPProvider() {
+        // Given
         let (sut, spy) = makeSUT()
         let query = "test"
         
+        // When
         sut.search(query: query) { _ in }
         
+        // Then
         XCTAssertEqual(spy.providers.count, 1)
         XCTAssertEqual(spy.providers.first?.url.description, Enviroment.baseURL)
         XCTAssertEqual(spy.providers.first?.queryParams, ["nojsoncallback": "1", "tags": query, "format": "json"])
@@ -68,11 +71,14 @@ private extension RemoteLoadSearchItemsTests {
                 with result: Result<[SearchItemResponse], DomainError>,
                 when action: () -> Void, file: StaticString = #filePath,
                 line: UInt = #line) {
+        // Given
         var receivedResult: Result<[SearchItemResponse], DomainError>?
         
+        // When
         sut.search(query: String()) { receivedResult = $0 }
         action()
         
+        // Then
         XCTAssertEqual(receivedResult, result, file: file, line: line)
     }
 }

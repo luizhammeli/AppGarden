@@ -9,16 +9,16 @@ import LHHelpers
 import UIKit
 
 final class SearchImageViewController: CustomViewController<SearchImageView> {
-    private let coordinator: SearchImageCoordinator
+    private let coordinator: SearchImageCoordinatorProtocol
     private let presenter: SearchImagePresenterProtocol
     
-    var searchItems: [SearchImageViewModel] = [] {
+    private var searchItems: [SearchImageViewModel] = [] {
         didSet {
             customView.collectionView.reloadData()
         }
     }
     
-    init(presenter: SearchImagePresenterProtocol, coordinator: SearchImageCoordinator) {
+    init(presenter: SearchImagePresenterProtocol, coordinator: SearchImageCoordinatorProtocol) {
         self.presenter = presenter
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -119,7 +119,7 @@ extension SearchImageViewController: SearchPresenterDelegateProtocol {
         customView.searchErrorView.isHidden = true
         if isLoading {
             customView.activityIndicator.startAnimating()
-        } else {
+        } else {            
             customView.activityIndicator.stopAnimating()
         }
     }
