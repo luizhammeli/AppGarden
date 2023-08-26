@@ -11,6 +11,7 @@ import UIKit
 final class SearchImageViewController: CustomViewController<SearchImageView> {
     private let coordinator: SearchImageCoordinatorProtocol
     private let presenter: SearchImagePresenterProtocol
+    private let layoutDataSource: GridViewFlowLayoutDataSourceProtocol
     
     private var searchItems: [SearchImageViewModel] = [] {
         didSet {
@@ -18,9 +19,12 @@ final class SearchImageViewController: CustomViewController<SearchImageView> {
         }
     }
     
-    init(presenter: SearchImagePresenterProtocol, coordinator: SearchImageCoordinatorProtocol) {
+    init(presenter: SearchImagePresenterProtocol,
+         coordinator: SearchImageCoordinatorProtocol,
+         layoutDataSource: GridViewFlowLayoutDataSourceProtocol) {
         self.presenter = presenter
         self.coordinator = coordinator
+        self.layoutDataSource = layoutDataSource
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -55,6 +59,11 @@ final class SearchImageViewController: CustomViewController<SearchImageView> {
         navigationItem.title = L10n.gridViewTitle
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        customView.collectionView.reloadData()
+    }
 }
 
 // MARK: UISearchBarDelegate
@@ -77,9 +86,8 @@ extension SearchImageViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let url = searchItems[indexPath.item].imageURL
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ImageGridCell
-        cell.set(url: url)
+        cell.set(url: searchItems[indexPath.item].imageURL)
         return cell
     }
 }
@@ -87,23 +95,22 @@ extension SearchImageViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 
 extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ImageGridCell, let image = cell.image else { return }        
         coordinator.goToDetail(image: image, viewModel: searchItems[indexPath.item])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size: CGFloat = (view.frame.width - (Spacing.superSmall * 2)) / Spacing.superSmall
-        return CGSize(width: size, height: size)
+        return layoutDataSource.cellSize(width: view.frame.width,
+                                         verticalSize: traitCollection.verticalSizeClass)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return Spacing.superSmall
+        return layoutDataSource.lineSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return Spacing.superSmall
+        return layoutDataSource.itemSpacing
     }
 }
 

@@ -21,6 +21,8 @@
 		2565A5042A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A5032A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift */; };
 		2565A50E2A96538E0033FEDB /* AppGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A50D2A96538E0033FEDB /* AppGardenUITests.swift */; };
 		2565A5102A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A50F2A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift */; };
+		25673BF02A9A94AA0045B17E /* GridViewFlowLayoutDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25673BEF2A9A94AA0045B17E /* GridViewFlowLayoutDataSourceProtocol.swift */; };
+		25673BF22A9A94EF0045B17E /* SearchImageLayoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25673BF12A9A94EF0045B17E /* SearchImageLayoutDataSource.swift */; };
 		259CC8672A990E220099A549 /* DelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CC8662A990E220099A549 /* DelegateSpy.swift */; };
 		259CC8692A990E480099A549 /* LoadSearchItemsSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CC8682A990E480099A549 /* LoadSearchItemsSpy.swift */; };
 		259CC86C2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CC86B2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift */; };
@@ -96,6 +98,8 @@
 		2565A5092A96538E0033FEDB /* AppGardenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppGardenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2565A50D2A96538E0033FEDB /* AppGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenUITests.swift; sourceTree = "<group>"; };
 		2565A50F2A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		25673BEF2A9A94AA0045B17E /* GridViewFlowLayoutDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewFlowLayoutDataSourceProtocol.swift; sourceTree = "<group>"; };
+		25673BF12A9A94EF0045B17E /* SearchImageLayoutDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageLayoutDataSource.swift; sourceTree = "<group>"; };
 		259CC8662A990E220099A549 /* DelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateSpy.swift; sourceTree = "<group>"; };
 		259CC8682A990E480099A549 /* LoadSearchItemsSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadSearchItemsSpy.swift; sourceTree = "<group>"; };
 		259CC86B2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecoratorTests.swift; sourceTree = "<group>"; };
@@ -283,6 +287,14 @@
 			path = AppGardenUITests;
 			sourceTree = "<group>";
 		};
+		25673BF32A9A95030045B17E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				25673BF12A9A94EF0045B17E /* SearchImageLayoutDataSource.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		259CC86A2A9913FF0099A549 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +370,7 @@
 		25D3048E2A9682A000E4EBE3 /* Grid */ = {
 			isa = PBXGroup;
 			children = (
+				25673BF32A9A95030045B17E /* Models */,
 				25D304CF2A97F0A800E4EBE3 /* Flow */,
 				25D304AA2A96CE9300E4EBE3 /* Extension */,
 				25D304932A96853200E4EBE3 /* UseCase */,
@@ -519,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				25D304CD2A97F05E00E4EBE3 /* Coordinator.swift */,
+				25673BEF2A9A94AA0045B17E /* GridViewFlowLayoutDataSourceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -709,6 +723,7 @@
 			files = (
 				25D304992A9685D400E4EBE3 /* SearchResponse.swift in Sources */,
 				25D304C92A97DEDE00E4EBE3 /* DetailInfoContainerView.swift in Sources */,
+				25673BF22A9A94EF0045B17E /* SearchImageLayoutDataSource.swift in Sources */,
 				25D304B12A9777C500E4EBE3 /* SearchProvider.swift in Sources */,
 				25D3048C2A96828400E4EBE3 /* SearchImageView.swift in Sources */,
 				25D3049B2A968B7700E4EBE3 /* RemoteLoadSearchItems.swift in Sources */,
@@ -717,6 +732,7 @@
 				2565A4F12A96538C0033FEDB /* SearchImageViewController.swift in Sources */,
 				25D304AF2A9774D700E4EBE3 /* Enviroment.swift in Sources */,
 				25D304A92A96CE7D00E4EBE3 /* MainQueueDispatchDecorator.swift in Sources */,
+				25673BF02A9A94AA0045B17E /* GridViewFlowLayoutDataSourceProtocol.swift in Sources */,
 				25D304C12A97D88000E4EBE3 /* Metrics.swift in Sources */,
 				25D304A12A9698E800E4EBE3 /* SearchImageViewModel.swift in Sources */,
 				2565A4ED2A96538C0033FEDB /* AppDelegate.swift in Sources */,
@@ -929,7 +945,7 @@
 				INFOPLIST_FILE = AppGarden/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -959,7 +975,7 @@
 				INFOPLIST_FILE = AppGarden/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

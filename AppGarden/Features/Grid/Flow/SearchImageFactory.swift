@@ -18,7 +18,8 @@ extension DependencyContainer: SearchImageFactory {
         let useCase = RemoteLoadSearchItems(client: client)
         let decorator = MainQueueDispatchDecorator(instance: useCase)
         let presenter = SearchImagePresenter(serchLoader: decorator)
-        let controller = SearchImageViewController(presenter: presenter, coordinator: coordinator)
+        let layoutDataSource = SearchImageLayoutDataSource()
+        let controller = SearchImageViewController(presenter: presenter, coordinator: coordinator, layoutDataSource: layoutDataSource)
         presenter.delegate = controller
         return controller
     }
