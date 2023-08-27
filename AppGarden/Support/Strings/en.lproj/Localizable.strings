@@ -14,3 +14,9 @@
 "IMAGE_WIDTH" = "Width";
 "IMAGE_DATE" = "Date";
 "SEARCH_ERROR_DESCRIPTION" = "Try a new search.";
+
+// Accessibility
+
+"ACCESSIBILITY_ITEM_NAME" = "Item";
+"ACCESSIBILITY_ITEM_OF" = "Of";
+"ACCESSIBILITY_ITEM_TITLE_NAME" = "Title";

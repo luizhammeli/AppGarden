@@ -11,13 +11,13 @@ import XCTest
 final class SearchImageLayoutDataSourceTests: XCTestCase {
     func test_cellSize_shouldReturnCorrectValueForPortraitOrientation() {
         let sut = SearchImageLayoutDataSource()
-        
+
         XCTAssertEqual(sut.cellSize(width: 102, verticalSize: .regular), CGSize(width: 32, height: 32))
     }
-    
+
     func test_cellSize_shouldReturnCorrectValueForLandscapeOrientation() {
         let sut = SearchImageLayoutDataSource()
-        
+
         XCTAssertEqual(sut.cellSize(width: 102, verticalSize: .compact), CGSize(width: 18, height: 18))
     }
 }

@@ -14,25 +14,25 @@ final class SearchImageCoordinatorTests: XCTestCase {
         let window = UIWindow()
         let navigationController = UINavigationController()
         let sut = makeSUT(window: window, navigationController: navigationController)
-        
+
         // When
         sut.start()
-        
+
         // Then
         XCTAssertEqual(window.rootViewController, navigationController)
         XCTAssertEqual(navigationController.viewControllers.count, 1)
         XCTAssertTrue(navigationController.viewControllers.first is SearchImageViewController)
     }
-    
+
     func test_start_shouldNavigateToDetailController() {
         // Given
         let dummyViewModel = makeFakeSearchImageViewModel(with: makeFakeSearchItemResponse())
         let navigationController = NavigationControllerSpy()
         let sut = makeSUT(navigationController: navigationController)
-        
+
         // When
         sut.goToDetail(image: UIImage(), viewModel: dummyViewModel)
-        
+
         // Then
         XCTAssertEqual(navigationController.controllers.count, 1)
         XCTAssertTrue(navigationController.controllers.first is ImageDetailViewController)

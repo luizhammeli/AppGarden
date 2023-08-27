@@ -16,12 +16,12 @@ protocol LoadSearchItems {
 final class RemoteLoadSearchItems: LoadSearchItems {
     private let client: HTTPClient
     private let baseURL: String
-    
+
     init(client: HTTPClient, baseURL: String = Enviroment.baseURL) {
         self.baseURL = baseURL
         self.client = client
     }
-    
+
     func search(query: String, completion: @escaping (LoadSearchItems.Result) -> Void) {
         guard let url = URL(string: baseURL) else { completion(.failure(.unexpected)); return }
         let provider = SearchProvider(url: url, query: query)

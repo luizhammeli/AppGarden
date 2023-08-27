@@ -16,7 +16,7 @@ final class LoadSearchItemsSpy: LoadSearchItems {
         completions.append(completion)
         queries.append(query)
     }
-    
+
     func complete(with result: Result<[AppGarden.SearchItemResponse], AppGarden.DomainError>, at index: Int = 0) {
         completions[index](result)
     }

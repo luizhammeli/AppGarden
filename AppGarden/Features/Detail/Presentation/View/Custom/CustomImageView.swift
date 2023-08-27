@@ -22,11 +22,11 @@ final class CustomImageView: UIView {
         super.init(frame: frame)
         setupViews()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func image(_ image: UIImage) {
         imageView.image = image
     }
@@ -36,12 +36,12 @@ extension CustomImageView: CodeView {
     func buildViewHierarchy() {
         addSubview(imageView)
     }
-    
+
     func setupConstraints() {
         imageView.fillSuperview()
     }
-    
-    func setupAdditionalConfiguration() {        
+
+    func setupAdditionalConfiguration() {
         applyShadow(color: .label)
     }
 }

@@ -31,5 +31,5 @@ struct FontSizeConstants {
 
 struct GridConstants {
     static let numberOfElementsPortrait: CGFloat = 3
-    static let numberOfElementsLandscape: CGFloat = 5    
+    static let numberOfElementsLandscape: CGFloat = 5
 }

@@ -16,15 +16,15 @@ enum DelegateMessage: Equatable {
 
 final class DelegateSpy: SearchPresenterDelegateProtocol {
     var messages: [DelegateMessage] = []
-    
+
     func view(items: [AppGarden.SearchImageViewModel]) {
         messages.append(.view(items: items))
     }
-    
+
     func showLoader(isLoading: Bool) {
         messages.append(.loader(isLoading: isLoading))
     }
-    
+
     func showError() {
         messages.append(.error)
     }

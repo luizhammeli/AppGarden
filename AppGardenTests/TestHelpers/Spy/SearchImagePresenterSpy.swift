@@ -10,7 +10,7 @@ import Foundation
 
 final class SearchImagePresenterSpy: SearchImagePresenterProtocol {
     var queries: [String] = []
-    
+
     func makeSearch(query: String) {
         queries.append(query)
     }

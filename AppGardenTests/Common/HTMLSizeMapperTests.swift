@@ -8,19 +8,19 @@
 import XCTest
 @testable import AppGarden
 
-final class HTMLSizeMapperTests: XCTestCase {    
+final class HTMLSizeMapperTests: XCTestCase {
     func test_map_shouldReturnCorrectSize() {
         let size = HTMLSizeMapper.map(description: makeFakeDescription())
         XCTAssertEqual(size, CGSize(width: 240, height: 162))
     }
-    
+
     func test_map_shouldReturnThresholdSizeForInvalidHTML() {
         let fakeDescription = "<a href=\"https://www.flickr.com/people/136121443@N06\">el-liza</a>"
         let thresholdValue: CGFloat = 100
         let size = HTMLSizeMapper.map(description: fakeDescription, thresholdValue: thresholdValue)
         XCTAssertEqual(size, CGSize(width: thresholdValue, height: thresholdValue))
     }
-    
+
     func test_map_shouldReturnDefaultSizeForEmptyHTML() {
         let size = HTMLSizeMapper.map(description: String())
         XCTAssertEqual(size, CGSize(width: 240, height: 240))

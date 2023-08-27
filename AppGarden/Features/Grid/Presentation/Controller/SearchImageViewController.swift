@@ -12,13 +12,13 @@ final class SearchImageViewController: CustomViewController<SearchImageView> {
     private let coordinator: SearchImageCoordinatorProtocol
     private let presenter: SearchImagePresenterProtocol
     private let layoutDataSource: GridViewFlowLayoutDataSourceProtocol
-    
+
     private var searchItems: [SearchImageViewModel] = [] {
         didSet {
             customView.collectionView.reloadData()
         }
     }
-    
+
     init(presenter: SearchImagePresenterProtocol,
          coordinator: SearchImageCoordinatorProtocol,
          layoutDataSource: GridViewFlowLayoutDataSourceProtocol) {
@@ -27,39 +27,39 @@ final class SearchImageViewController: CustomViewController<SearchImageView> {
         self.layoutDataSource = layoutDataSource
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
     }
-    
+
     private func setupViews() {
         setupCollectionView()
         setupNavigationBar()
         setupResultController()
     }
-    
+
     private func setupCollectionView() {
         customView.collectionView.dataSource = self
         customView.collectionView.delegate = self
         customView.collectionView.register(ImageGridCell.self)
     }
-    
+
     private func setupResultController() {
         customView.searchController.searchBar.delegate = self
         navigationItem.searchController = customView.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
-    
+
     private func setupNavigationBar() {
         navigationItem.title = L10n.gridViewTitle
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         customView.collectionView.reloadData()
@@ -72,7 +72,7 @@ extension SearchImageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.makeSearch(query: searchText)
     }
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         showError()
     }
@@ -84,10 +84,11 @@ extension SearchImageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchItems.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ImageGridCell
-        cell.set(url: searchItems[indexPath.item].imageURL)
+        let item = searchItems[indexPath.item]
+        cell.set(url: item.imageURL, accessibilityTitle: item.accessibilityTitle)
         return cell
     }
 }
@@ -96,19 +97,19 @@ extension SearchImageViewController: UICollectionViewDataSource {
 
 extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? ImageGridCell        
+        let cell = collectionView.cellForItem(at: indexPath) as? ImageGridCell
         coordinator.goToDetail(image: cell?.image, viewModel: searchItems[indexPath.item])
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return layoutDataSource.cellSize(width: view.frame.width,
                                          verticalSize: traitCollection.verticalSizeClass)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return layoutDataSource.lineSpacing
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return layoutDataSource.itemSpacing
     }
@@ -121,16 +122,16 @@ extension SearchImageViewController: SearchPresenterDelegateProtocol {
         customView.searchErrorView.isHidden = true
         self.searchItems = items
     }
-    
+
     func showLoader(isLoading: Bool) {
         customView.searchErrorView.isHidden = true
         if isLoading {
             customView.activityIndicator.startAnimating()
-        } else {            
+        } else {
             customView.activityIndicator.stopAnimating()
         }
     }
-    
+
     func showError() {
         searchItems.removeAll()
         customView.searchErrorView.isHidden = false

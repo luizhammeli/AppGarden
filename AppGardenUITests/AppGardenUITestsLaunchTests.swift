@@ -5,9 +5,9 @@
 ////  Created by Luiz Diniz Hammerli on 23/08/23.
 ////
 //
-//import XCTest
+// import XCTest
 //
-//final class AppGardenUITestsLaunchTests: XCTestCase {
+// final class AppGardenUITestsLaunchTests: XCTestCase {
 //
 //    override class var runsForEachTargetApplicationUIConfiguration: Bool {
 //        true
@@ -29,4 +29,4 @@
 //        attachment.lifetime = .keepAlways
 //        add(attachment)
 //    }
-//}
+// }

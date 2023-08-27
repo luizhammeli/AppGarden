@@ -15,16 +15,16 @@ final class DetailInfoContainerView: UIView {
         stackView.spacing = Spacing.small
         return stackView
     }()
-    
+
     init() {
         super.init(frame: .zero)
         setupViews()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func set(items: [ImageItemViewModel]) {
         items.forEach {
             stackView.addArrangedSubview(DetailRowView(viewModel: $0))
@@ -36,11 +36,11 @@ extension DetailInfoContainerView: CodeView {
     func buildViewHierarchy() {
         addSubviews(stackView)
     }
-    
+
     func setupConstraints() {
         stackView.fillSuperview()
     }
-    
+
     func setupAdditionalConfiguration() {
         layer.cornerRadius = BorderRadius.small
         backgroundColor = .secondarySystemBackground

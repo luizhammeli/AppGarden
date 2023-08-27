@@ -9,5 +9,5 @@ import Foundation
 
 struct ImageItemViewModel {
     let title: String
-    let value: String    
+    let value: String
 }

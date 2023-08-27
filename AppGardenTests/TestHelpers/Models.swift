@@ -28,6 +28,7 @@ func makeFakeSearchImageViewModel(with itemResponse: SearchItemResponse) -> Sear
     return .init(imageURL: url,
                  size: CGSize(width: 160, height: 240),
                  title: itemResponse.title,
+                 accessibilityTitle: "Item 1 Of 1 Title \(itemResponse.title)",
                  tags: itemResponse.tags,
                  author: itemResponse.author,
                  date: itemResponse.dateTaken.formatToDefault())

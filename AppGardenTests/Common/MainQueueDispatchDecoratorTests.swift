@@ -14,12 +14,12 @@ final class MainQueueDispatchDecoratorTests: XCTestCase {
         let exp = expectation(description: #function)
         sut.dispatch {
             XCTAssertTrue(Thread.isMainThread)
-            exp.fulfill()            
+            exp.fulfill()
         }
-        
+
         wait(for: [exp], timeout: 1)
     }
-    
+
     func test_dispatch_shouldCompleteInMainThreadWithGlobalQueueExecution() {
         let sut = makeSUT()
         let exp = expectation(description: #function)
@@ -29,7 +29,7 @@ final class MainQueueDispatchDecoratorTests: XCTestCase {
                 exp.fulfill()
             }
         }
-        
+
         wait(for: [exp], timeout: 1)
     }
 }
@@ -37,13 +37,13 @@ final class MainQueueDispatchDecoratorTests: XCTestCase {
 private extension MainQueueDispatchDecoratorTests {
     func makeSUT() -> MainQueueDispatchDecorator<TestClass> {
         let sut = MainQueueDispatchDecorator(instance: TestClass())
-        
+
         trackForMemoryLeak(for: sut)
-        
+
         return sut
     }
 }
 
 final class TestClass {
-    
+
 }

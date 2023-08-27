@@ -10,6 +10,12 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Item
+  internal static let accessibilityItemName = L10n.tr("Localizable", "ACCESSIBILITY_ITEM_NAME", fallback: "Item")
+  /// Of
+  internal static let accessibilityItemOf = L10n.tr("Localizable", "ACCESSIBILITY_ITEM_OF", fallback: "Of")
+  /// Title
+  internal static let accessibilityItemTitleName = L10n.tr("Localizable", "ACCESSIBILITY_ITEM_TITLE_NAME", fallback: "Title")
   /// Details
   internal static let detailsScreenTitle = L10n.tr("Localizable", "DETAILS_SCREEN_TITLE", fallback: "Details")
   /// Localizable.strings

@@ -10,7 +10,7 @@ import UIKit
 struct SearchImageLayoutDataSource: GridViewFlowLayoutDataSourceProtocol {
     var lineSpacing: CGFloat = Spacing.superSmall
     var itemSpacing: CGFloat = Spacing.superSmall
-    
+
     func cellSize(width: CGFloat, verticalSize: UIUserInterfaceSizeClass) -> CGSize {
         let numberOfItems: CGFloat = verticalSize == .compact ? GridConstants.numberOfElementsLandscape : GridConstants.numberOfElementsPortrait
         let spacing: CGFloat = numberOfItems - 1

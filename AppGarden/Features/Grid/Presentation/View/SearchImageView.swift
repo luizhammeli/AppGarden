@@ -14,22 +14,22 @@ final class SearchImageView: UIView {
         collectionView.backgroundColor = .systemBackground
         return collectionView
     }()
-    
+
     let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         return searchController
     }()
-    
+
     let activityIndicator = UIActivityIndicatorView(style: .large)
-    
+
     let searchErrorView = SearchErrorView()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -41,13 +41,13 @@ extension SearchImageView: CodeView {
         addSubview(activityIndicator)
         addSubview(searchErrorView)
     }
-    
+
     func setupConstraints() {
         collectionView.fillSuperview()
         activityIndicator.centerInSuperview()
         searchErrorView.centerInSuperview()
     }
-    
+
     func setupAdditionalConfiguration() {
         searchErrorView.isHidden = false
     }

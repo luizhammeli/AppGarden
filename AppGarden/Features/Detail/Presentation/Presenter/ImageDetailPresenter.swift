@@ -17,7 +17,7 @@ final class ImageDetailPresenter: ImageDetailPresenterProtocol {
     init(image: UIImage, viewModel: SearchImageViewModel) {
         mapData(image: image, viewModel: viewModel)
     }
-    
+
     private func mapData(image: UIImage, viewModel: SearchImageViewModel) {
         let strWidth = String(Int(viewModel.size.width))
         let strHeight = String(Int(viewModel.size.height))

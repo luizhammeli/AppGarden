@@ -15,7 +15,7 @@ final class DetailRowView: UIView {
         label.font = .systemFont(ofSize: FontSizeConstants.small)
         return label
     }()
-    
+
     private let valueLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -24,13 +24,13 @@ final class DetailRowView: UIView {
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
-    
+
     private let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemBackground
         return view
     }()
-    
+
     private lazy var stackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, valueLabel])
         stackView.spacing = Spacing.medium
@@ -39,14 +39,14 @@ final class DetailRowView: UIView {
         stackView.distribution = .equalSpacing
         return stackView
     }()
-    
+
     init(viewModel: ImageItemViewModel) {
         super.init(frame: .zero)
         titleLabel.text = viewModel.title
         valueLabel.text = viewModel.value
         setupViews()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -57,7 +57,7 @@ extension DetailRowView: CodeView {
         addSubview(stackView)
         addSubview(separatorView)
     }
-    
+
     func setupConstraints() {
         stackView.fillSuperview()
         separatorView.anchor(leading: leadingAnchor,
@@ -66,6 +66,6 @@ extension DetailRowView: CodeView {
                              padding: UIEdgeInsets(top: .zero, left: Spacing.medium, bottom: .zero, right: Spacing.medium))
         separatorView.anchor(size: CGSize(width: .zero, height: 1))
     }
-    
+
     func setupAdditionalConfiguration() {}
 }

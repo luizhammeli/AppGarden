@@ -27,8 +27,8 @@ struct SearchItemResponse: Codable, Equatable {
 
 struct MediaReponse: Codable, Equatable {
     let imageURL: String
-    
-    enum CodingKeys: String, CodingKey {        
+
+    enum CodingKeys: String, CodingKey {
         case imageURL = "m"
     }
 }
