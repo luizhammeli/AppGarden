@@ -23,7 +23,7 @@ final class ImageDetailViewController: CustomViewController<ImageDetailView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        customView.setupImage(viewModel: presenter.viewModel!) // TODO: Remove force unwrapping
+        customView.setupImage(viewModel: presenter.viewModel)
     }
 
     private func setupNavigationBar() {

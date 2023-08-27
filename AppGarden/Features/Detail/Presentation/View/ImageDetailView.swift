@@ -21,7 +21,9 @@ final class ImageDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupImage(viewModel: ImageDetailViewModel) {
+    func setupImage(viewModel: ImageDetailViewModel?) {
+        guard let viewModel = viewModel else { return }
+
         addSubview(imageView)
         addSubview(containerInfoView)
 
