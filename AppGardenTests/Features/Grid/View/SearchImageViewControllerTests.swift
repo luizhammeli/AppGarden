@@ -106,38 +106,58 @@ final class SearchImageViewControllerTests: XCTestCase {
         
         XCTAssertNotNil(sut.cell(index: 0))
     }
+    
+    func test_didSelect_shouldCallCoordinator() {
+        let coordinator = SearchImageCoordinatorSpy()
+        let viewModel = makeFakeSearchImageViewModel(with: makeFakeSearchItemResponse())
+        let (sut, _) = makeSUT(coodinatorSpy: coordinator)
+
+        sut.view(items: [viewModel])
+        sut.didSelect(index: 0)
+        
+        
+        XCTAssertEqual(coordinator.receivedData.count, 1)
+        XCTAssertEqual(coordinator.receivedData[0].viewModel, viewModel)
+    }
+    
+    func test_minimumLineSpacing_shouldReturnCorrectValue() {
+        let layout = SearchImageLayoutDataSource()
+        let (sut, _) = makeSUT()
+
+        XCTAssertEqual(sut.minimumLineSpacing(), layout.lineSpacing)
+    }
+    
+    func test_minimumItemSpacing_shouldReturnCorrectValue() {
+        let layout = SearchImageLayoutDataSource()
+        let (sut, _) = makeSUT()
+
+        XCTAssertEqual(sut.minimumInteritemSpacing(), layout.itemSpacing)
+    }
+    
+    func test_sizeForItem_shouldReturnCorrectValue() {
+        let layout = SearchImageLayoutDataSource()
+        let (sut, _) = makeSUT()
+
+        XCTAssertEqual(sut.sizeForItem(), layout.cellSize(width: .zero, verticalSize: .regular))
+    }
 }
 
 private extension SearchImageViewControllerTests {
     func makeSUT(coodinatorSpy: SearchImageCoordinatorProtocol = SearchImageCoordinatorSpy()) -> (SearchImageViewController, SearchImagePresenterSpy){
         let presenterSpy = SearchImagePresenterSpy()
-        let sut = SearchImageViewController(presenter: presenterSpy, coordinator: coodinatorSpy)
+        let sut = SearchImageViewController(presenter: presenterSpy, coordinator: coodinatorSpy, layoutDataSource: SearchImageLayoutDataSource())
         _ = UINavigationController(rootViewController: sut)
         
         sut.loadViewIfNeeded()
+        
+        trackForMemoryLeak(for: sut)
+        trackForMemoryLeak(for: presenterSpy)
         
         return (sut, presenterSpy)
     }
 }
 
-final class SearchImagePresenterSpy: SearchImagePresenterProtocol {
-    var queries: [String] = []
-    
-    func makeSearch(query: String) {
-        queries.append(query)
-    }
-}
-
-final class SearchImageCoordinatorSpy: SearchImageCoordinatorProtocol {
-    var receivedData: [(image: UIImage, viewModel: AppGarden.SearchImageViewModel)] = []
-
-    func goToDetail(image: UIImage, viewModel: AppGarden.SearchImageViewModel) {
-        receivedData.append((image: image, viewModel: viewModel))
-    }
-}
-
-extension SearchImageViewController {
-    
+private extension SearchImageViewController {
     var isLoading: Bool {
         return customView.activityIndicator.isAnimating
     }
@@ -149,13 +169,28 @@ extension SearchImageViewController {
     var numberOfItems: Int {
         customView.collectionView.numberOfItems(inSection: 0)
     }
-
     
     func cell(index: Int) -> ImageGridCell {
         collectionView(customView.collectionView, cellForItemAt: IndexPath(item: index, section: index)) as! ImageGridCell
     }
     
+    func didSelect(index: Int) {
+        collectionView(customView.collectionView, didSelectItemAt: IndexPath(item: index, section: index))
+    }
+    
     func makeSearch(value: String) {
         searchBar(customView.searchController.searchBar, textDidChange: value)
+    }
+    
+    func minimumLineSpacing() -> CGFloat {
+        collectionView(customView.collectionView, layout: UICollectionViewFlowLayout(), minimumLineSpacingForSectionAt: 0)
+    }
+    
+    func minimumInteritemSpacing() -> CGFloat {
+        collectionView(customView.collectionView, layout: UICollectionViewFlowLayout(), minimumInteritemSpacingForSectionAt: 0)
+    }
+    
+    func sizeForItem() -> CGSize {
+        collectionView(customView.collectionView, layout: UICollectionViewFlowLayout(), sizeForItemAt: IndexPath(item: 0, section: 0))
     }
 }

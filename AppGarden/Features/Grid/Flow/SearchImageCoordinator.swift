@@ -9,7 +9,7 @@ import UIKit
 import LHNetworkClient
 
 protocol SearchImageCoordinatorProtocol: AnyObject {
-    func goToDetail(image: UIImage, viewModel: SearchImageViewModel)
+    func goToDetail(image: UIImage?, viewModel: SearchImageViewModel?)
 }
 
 final class SearchImageCoordinator: Coordinator {
@@ -31,7 +31,8 @@ final class SearchImageCoordinator: Coordinator {
 }
 
 extension SearchImageCoordinator: SearchImageCoordinatorProtocol {
-    func goToDetail(image: UIImage, viewModel: SearchImageViewModel) {
+    func goToDetail(image: UIImage?, viewModel: SearchImageViewModel?) {
+        guard let image = image, let viewModel = viewModel else { return }
         let presenter = ImageDetailPresenter(image: image, viewModel: viewModel)
         navigationController.pushViewController(ImageDetailViewController(presenter: presenter), animated: true)
     }

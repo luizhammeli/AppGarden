@@ -5,7 +5,7 @@
 //  Created by Luiz Diniz Hammerli on 26/08/23.
 //
 
-import Foundation
+import UIKit
 
 protocol GridViewFlowLayoutDataSourceProtocol {
     func cellSize(width: CGFloat, verticalSize: UIUserInterfaceSizeClass) -> CGSize

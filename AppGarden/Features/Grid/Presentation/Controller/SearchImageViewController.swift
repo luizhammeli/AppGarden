@@ -96,8 +96,8 @@ extension SearchImageViewController: UICollectionViewDataSource {
 
 extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ImageGridCell, let image = cell.image else { return }        
-        coordinator.goToDetail(image: image, viewModel: searchItems[indexPath.item])
+        let cell = collectionView.cellForItem(at: indexPath) as? ImageGridCell        
+        coordinator.goToDetail(image: cell?.image, viewModel: searchItems[indexPath.item])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

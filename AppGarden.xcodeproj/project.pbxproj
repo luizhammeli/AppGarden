@@ -13,6 +13,7 @@
 		2527BAA02A993A3700C58948 /* NavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527BA9F2A993A3700C58948 /* NavigationControllerSpy.swift */; };
 		2527BAA42A9A6CA800C58948 /* SearchImageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527BAA32A9A6CA800C58948 /* SearchImageViewControllerTests.swift */; };
 		25310D822A9909E50042D18D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25310D812A9909E50042D18D /* Models.swift */; };
+		2540CC682A9AE86700EB3FE1 /* SearchImageLayoutDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540CC672A9AE86700EB3FE1 /* SearchImageLayoutDataSourceTests.swift */; };
 		2565A4ED2A96538C0033FEDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4EC2A96538C0033FEDB /* AppDelegate.swift */; };
 		2565A4EF2A96538C0033FEDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4EE2A96538C0033FEDB /* SceneDelegate.swift */; };
 		2565A4F12A96538C0033FEDB /* SearchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A4F02A96538C0033FEDB /* SearchImageViewController.swift */; };
@@ -23,6 +24,8 @@
 		2565A5102A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565A50F2A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift */; };
 		25673BF02A9A94AA0045B17E /* GridViewFlowLayoutDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25673BEF2A9A94AA0045B17E /* GridViewFlowLayoutDataSourceProtocol.swift */; };
 		25673BF22A9A94EF0045B17E /* SearchImageLayoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25673BF12A9A94EF0045B17E /* SearchImageLayoutDataSource.swift */; };
+		25673BF52A9AE2A00045B17E /* SearchImageCoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25673BF42A9AE2A00045B17E /* SearchImageCoordinatorSpy.swift */; };
+		25673BF82A9AE2ED0045B17E /* SearchImagePresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25673BF72A9AE2ED0045B17E /* SearchImagePresenterSpy.swift */; };
 		259CC8672A990E220099A549 /* DelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CC8662A990E220099A549 /* DelegateSpy.swift */; };
 		259CC8692A990E480099A549 /* LoadSearchItemsSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CC8682A990E480099A549 /* LoadSearchItemsSpy.swift */; };
 		259CC86C2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CC86B2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift */; };
@@ -86,6 +89,7 @@
 		2527BA9F2A993A3700C58948 /* NavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerSpy.swift; sourceTree = "<group>"; };
 		2527BAA32A9A6CA800C58948 /* SearchImageViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageViewControllerTests.swift; sourceTree = "<group>"; };
 		25310D812A9909E50042D18D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		2540CC672A9AE86700EB3FE1 /* SearchImageLayoutDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageLayoutDataSourceTests.swift; sourceTree = "<group>"; };
 		2565A4E92A96538C0033FEDB /* AppGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2565A4EC2A96538C0033FEDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2565A4EE2A96538C0033FEDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 		2565A50F2A96538E0033FEDB /* AppGardenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGardenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		25673BEF2A9A94AA0045B17E /* GridViewFlowLayoutDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewFlowLayoutDataSourceProtocol.swift; sourceTree = "<group>"; };
 		25673BF12A9A94EF0045B17E /* SearchImageLayoutDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageLayoutDataSource.swift; sourceTree = "<group>"; };
+		25673BF42A9AE2A00045B17E /* SearchImageCoordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageCoordinatorSpy.swift; sourceTree = "<group>"; };
+		25673BF72A9AE2ED0045B17E /* SearchImagePresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImagePresenterSpy.swift; sourceTree = "<group>"; };
 		259CC8662A990E220099A549 /* DelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateSpy.swift; sourceTree = "<group>"; };
 		259CC8682A990E480099A549 /* LoadSearchItemsSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadSearchItemsSpy.swift; sourceTree = "<group>"; };
 		259CC86B2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecoratorTests.swift; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 		250A71572A982F2800B03B61 /* Grid */ = {
 			isa = PBXGroup;
 			children = (
+				2540CC662A9AE84C00EB3FE1 /* Models */,
 				2527BAA12A9A6C7300C58948 /* View */,
 				2527BA9C2A992C6F00C58948 /* Flow */,
 				25D9327C2A991A1600157F27 /* Extension */,
@@ -200,6 +207,8 @@
 				259CC8662A990E220099A549 /* DelegateSpy.swift */,
 				259CC8682A990E480099A549 /* LoadSearchItemsSpy.swift */,
 				2527BA9F2A993A3700C58948 /* NavigationControllerSpy.swift */,
+				25673BF42A9AE2A00045B17E /* SearchImageCoordinatorSpy.swift */,
+				25673BF72A9AE2ED0045B17E /* SearchImagePresenterSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -228,6 +237,14 @@
 				25310D812A9909E50042D18D /* Models.swift */,
 			);
 			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		2540CC662A9AE84C00EB3FE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2540CC672A9AE86700EB3FE1 /* SearchImageLayoutDataSourceTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2565A4E02A96538C0033FEDB = {
@@ -758,13 +775,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25673BF52A9AE2A00045B17E /* SearchImageCoordinatorSpy.swift in Sources */,
 				2527BAA42A9A6CA800C58948 /* SearchImageViewControllerTests.swift in Sources */,
 				2527BA9E2A992D1D00C58948 /* SearchImageCoordinatorTests.swift in Sources */,
 				259CC86C2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift in Sources */,
 				2565A5042A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift in Sources */,
+				25673BF82A9AE2ED0045B17E /* SearchImagePresenterSpy.swift in Sources */,
 				2527BA982A9926E200C58948 /* DateFormatterExtensionTests.swift in Sources */,
 				2527BAA02A993A3700C58948 /* NavigationControllerSpy.swift in Sources */,
 				259D0F4B2A99240D00C9BFB4 /* HTMLSizeMapperTests.swift in Sources */,
+				2540CC682A9AE86700EB3FE1 /* SearchImageLayoutDataSourceTests.swift in Sources */,
 				25D304DC2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift in Sources */,
 				259CC8692A990E480099A549 /* LoadSearchItemsSpy.swift in Sources */,
 				25AC1F412A98D0A00068FF4D /* SearchImagePresenter.swift in Sources */,

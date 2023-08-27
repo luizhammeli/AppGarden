@@ -28,21 +28,27 @@ final class RemoteLoadSearchItemsTests: XCTestCase {
     }
     
     func test_search_shouldCompleteWithUnexpectedErrorIfClientCompletesWithError() {
+        // Given
         let (sut, spy) = makeSUT()
         var receivedResult: Result<[SearchItemResponse], DomainError>?
         
+        // When
         sut.search(query: String()) { receivedResult = $0 }
         spy.complete(with: .failure(.forbidden))
         
+        // Then
         XCTAssertEqual(receivedResult, .failure(.unexpected))
     }
     
     func test_search_shouldCompleteWithUnexpectedErrorWithInvalidURL() {
+        // Given
         let (sut, _) = makeSUT(baseURL: String())
         var receivedResult: Result<[SearchItemResponse], DomainError>?
         
+        // When
         sut.search(query: String()) { receivedResult = $0 }
         
+        // Then
         XCTAssertEqual(receivedResult, .failure(.unexpected))
     }
     
