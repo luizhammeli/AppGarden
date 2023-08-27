@@ -5,7 +5,7 @@
 //  Created by Luiz Diniz Hammerli on 25/08/23.
 //
 
-import Foundation
+import UIKit
 @testable import AppGarden
 
 func makeFakeSearchResponse() -> SearchResponse {
@@ -32,4 +32,10 @@ func makeFakeSearchImageViewModel(with itemResponse: SearchItemResponse) -> Sear
                  tags: itemResponse.tags,
                  author: itemResponse.author,
                  date: itemResponse.dateTaken.formatToDefault())
+}
+
+func makeDetailViewModel() -> ImageDetailViewModel {
+    return ImageDetailViewModel(items: [.init(title: "title", value: "value")],
+                                image: UIImage.make(withColor: .red),
+                                size: CGSize(width: 20, height: 20))
 }
