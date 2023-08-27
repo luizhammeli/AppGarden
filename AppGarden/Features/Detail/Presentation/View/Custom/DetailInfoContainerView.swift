@@ -27,7 +27,7 @@ final class DetailInfoContainerView: UIView {
     
     func set(items: [ImageItemViewModel]) {
         items.forEach {
-            stackView.addArrangedSubview(DetailRowView(title: $0.title, value: $0.value))
+            stackView.addArrangedSubview(DetailRowView(viewModel: $0))
         }
     }
 }

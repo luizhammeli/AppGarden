@@ -9,15 +9,8 @@ import LHHelpers
 import UIKit
 
 final class ImageDetailView: UIView {
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = BorderRadius.medium
-        return imageView
-    }()
-    
-    let containerInfoView = DetailInfoContainerView()
+    private let imageView = CustomImageView()
+    private let containerInfoView = DetailInfoContainerView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,8 +24,8 @@ final class ImageDetailView: UIView {
     func setupImage(viewModel: ImageDetailViewModel) {
         addSubview(imageView)
         addSubview(containerInfoView)
-        
-        imageView.image = viewModel.image
+                
+        imageView.image(viewModel.image)
         imageView.anchor(size: viewModel.size)
         imageView.anchor(top: safeAreaLayoutGuide.topAnchor, padding: UIEdgeInsets(top: Spacing.extraLarge, left: .zero, bottom: .zero, right: .zero))
         imageView.centerXInSuperview()

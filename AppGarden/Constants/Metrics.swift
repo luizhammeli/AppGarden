@@ -23,7 +23,8 @@ struct BorderRadius {
 }
 
 struct FontSizeConstants {
-    static let small: CGFloat = 12.0
+    static let superSmall: CGFloat = 12.0
+    static let small: CGFloat = 14.0
     static let medium: CGFloat = 20.0
     static let large: CGFloat = 24.0
 }

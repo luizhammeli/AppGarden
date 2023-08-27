@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		250A715B2A98442A00B03B61 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250A715A2A98442A00B03B61 /* HTTPClientSpy.swift */; };
+		250A715E2A9B570700B03B61 /* ImageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250A715D2A9B570700B03B61 /* ImageDetailViewModel.swift */; };
+		250A71602A9B571E00B03B61 /* ImageItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250A715F2A9B571E00B03B61 /* ImageItemViewModel.swift */; };
+		250A71632A9B5B3000B03B61 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250A71622A9B5B3000B03B61 /* UIView+Shadow.swift */; };
+		250A71652A9B676900B03B61 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250A71642A9B676900B03B61 /* CustomImageView.swift */; };
 		2527BA982A9926E200C58948 /* DateFormatterExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527BA972A9926E200C58948 /* DateFormatterExtensionTests.swift */; };
 		2527BA9E2A992D1D00C58948 /* SearchImageCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527BA9D2A992D1D00C58948 /* SearchImageCoordinatorTests.swift */; };
 		2527BAA02A993A3700C58948 /* NavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527BA9F2A993A3700C58948 /* NavigationControllerSpy.swift */; };
@@ -85,6 +89,10 @@
 
 /* Begin PBXFileReference section */
 		250A715A2A98442A00B03B61 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		250A715D2A9B570700B03B61 /* ImageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewModel.swift; sourceTree = "<group>"; };
+		250A715F2A9B571E00B03B61 /* ImageItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemViewModel.swift; sourceTree = "<group>"; };
+		250A71622A9B5B3000B03B61 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		250A71642A9B676900B03B61 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		2527BA972A9926E200C58948 /* DateFormatterExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensionTests.swift; sourceTree = "<group>"; };
 		2527BA9D2A992D1D00C58948 /* SearchImageCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageCoordinatorTests.swift; sourceTree = "<group>"; };
 		2527BA9F2A993A3700C58948 /* NavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerSpy.swift; sourceTree = "<group>"; };
@@ -213,6 +221,15 @@
 				25673BF72A9AE2ED0045B17E /* SearchImagePresenterSpy.swift */,
 			);
 			path = Spy;
+			sourceTree = "<group>";
+		};
+		250A715C2A9B56FB00B03B61 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				250A715D2A9B570700B03B61 /* ImageDetailViewModel.swift */,
+				250A715F2A9B571E00B03B61 /* ImageItemViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2527BA9C2A992C6F00C58948 /* Flow */ = {
@@ -491,7 +508,7 @@
 		25D304B62A9798F700E4EBE3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				25D304BE2A97CA6C00E4EBE3 /* ViewModel */,
+				250A715C2A9B56FB00B03B61 /* Model */,
 				25D304B92A97991300E4EBE3 /* Presenter */,
 				25D304B82A97990B00E4EBE3 /* View */,
 				25D304B72A97990200E4EBE3 /* Controller */,
@@ -524,17 +541,11 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		25D304BE2A97CA6C00E4EBE3 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		25D304C22A97DE0000E4EBE3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				25D304C32A97DE0D00E4EBE3 /* Date+Formatter.swift */,
+				250A71622A9B5B3000B03B61 /* UIView+Shadow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -544,6 +555,7 @@
 			children = (
 				25D304C62A97DEB900E4EBE3 /* DetailRowView.swift */,
 				25D304C82A97DEDE00E4EBE3 /* DetailInfoContainerView.swift */,
+				250A71642A9B676900B03B61 /* CustomImageView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -745,6 +757,7 @@
 				25D304C92A97DEDE00E4EBE3 /* DetailInfoContainerView.swift in Sources */,
 				25673BF22A9A94EF0045B17E /* SearchImageLayoutDataSource.swift in Sources */,
 				25D304B12A9777C500E4EBE3 /* SearchProvider.swift in Sources */,
+				250A71632A9B5B3000B03B61 /* UIView+Shadow.swift in Sources */,
 				25D3048C2A96828400E4EBE3 /* SearchImageView.swift in Sources */,
 				25D3049B2A968B7700E4EBE3 /* RemoteLoadSearchItems.swift in Sources */,
 				25D304C72A97DEB900E4EBE3 /* DetailRowView.swift in Sources */,
@@ -755,13 +768,16 @@
 				25673BF02A9A94AA0045B17E /* GridViewFlowLayoutDataSourceProtocol.swift in Sources */,
 				25D304C12A97D88000E4EBE3 /* Metrics.swift in Sources */,
 				25D304A12A9698E800E4EBE3 /* SearchImageViewModel.swift in Sources */,
+				250A71652A9B676900B03B61 /* CustomImageView.swift in Sources */,
 				2565A4ED2A96538C0033FEDB /* AppDelegate.swift in Sources */,
 				25D304882A96815B00E4EBE3 /* Strings.swift in Sources */,
 				25D3048A2A96823000E4EBE3 /* ImageGridCell.swift in Sources */,
+				250A71602A9B571E00B03B61 /* ImageItemViewModel.swift in Sources */,
 				2565A4EF2A96538C0033FEDB /* SceneDelegate.swift in Sources */,
 				25D304D42A97F2BD00E4EBE3 /* DependencyContainer.swift in Sources */,
 				25D304AC2A96CEB500E4EBE3 /* MainQueueDispatchDecorator+LoadSearchItems.swift in Sources */,
 				25D304A62A96CD6000E4EBE3 /* SearchErrorView.swift in Sources */,
+				250A715E2A9B570700B03B61 /* ImageDetailViewModel.swift in Sources */,
 				25D304D12A97F0C000E4EBE3 /* SearchImageCoordinator.swift in Sources */,
 				25D304BD2A97ABE500E4EBE3 /* ImageDetailPresenter.swift in Sources */,
 				25D304B52A97966E00E4EBE3 /* ImageDetailViewController.swift in Sources */,

@@ -33,17 +33,17 @@ final class DetailRowView: UIView {
     
     private lazy var stackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, valueLabel])
-        stackView.spacing = Spacing.small
+        stackView.spacing = Spacing.medium
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: Spacing.medium, left: Spacing.large, bottom: Spacing.medium, right: Spacing.large)
         stackView.distribution = .equalSpacing
         return stackView
     }()
     
-    init(title: String, value: String) {
+    init(viewModel: ImageItemViewModel) {
         super.init(frame: .zero)
-        titleLabel.text = title
-        valueLabel.text = value
+        titleLabel.text = viewModel.title
+        valueLabel.text = viewModel.value
         setupViews()
     }
     

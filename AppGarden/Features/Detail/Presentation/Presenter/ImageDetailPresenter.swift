@@ -28,14 +28,3 @@ final class ImageDetailPresenter: ImageDetailPresenterProtocol {
         self.viewModel = ImageDetailViewModel(items: items, image: image, size: viewModel.size)
     }
 }
-
-struct ImageDetailViewModel {
-    let items: [ImageItemViewModel]
-    let image: UIImage
-    let size: CGSize
-}
-
-struct ImageItemViewModel {
-    let title: String
-    let value: String
-}
