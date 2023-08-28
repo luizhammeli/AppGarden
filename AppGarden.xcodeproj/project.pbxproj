@@ -260,7 +260,7 @@
 		2527BAA12A9A6C7300C58948 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				25B1369B2A9C2C5000CF4751 /* TestExtensions */,
+				25B1369B2A9C2C5000CF4751 /* TestHelper */,
 				2527BAA32A9A6CA800C58948 /* SearchImageViewControllerTests.swift */,
 				2540CC692A9AECC500EB3FE1 /* SearchImageViewTests.swift */,
 				25B136992A9C1B1600CF4751 /* SearchImageViewControllerSnapshotTests.swift */,
@@ -411,12 +411,20 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		25B1369B2A9C2C5000CF4751 /* TestExtensions */ = {
+		25B1369B2A9C2C5000CF4751 /* TestHelper */ = {
+			isa = PBXGroup;
+			children = (
+				25B136A12A9CC7C900CF4751 /* Extensions */,
+			);
+			path = TestHelper;
+			sourceTree = "<group>";
+		};
+		25B136A12A9CC7C900CF4751 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				25B1369C2A9C2C6900CF4751 /* SearchImageViewController+Tests.swift */,
 			);
-			path = TestExtensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		25D3047D2A967D6D00E4EBE3 /* Presentation */ = {
