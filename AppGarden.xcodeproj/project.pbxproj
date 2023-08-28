@@ -40,6 +40,9 @@
 		259CC86C2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CC86B2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift */; };
 		259D0F4B2A99240D00C9BFB4 /* HTMLSizeMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259D0F4A2A99240D00C9BFB4 /* HTMLSizeMapperTests.swift */; };
 		25AC1F412A98D0A00068FF4D /* SearchImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AC1F402A98D0A00068FF4D /* SearchImagePresenter.swift */; };
+		25B1369A2A9C1B1600CF4751 /* SearchImageViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B136992A9C1B1600CF4751 /* SearchImageViewControllerSnapshotTests.swift */; };
+		25B1369D2A9C2C6900CF4751 /* SearchImageViewController+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B1369C2A9C2C6900CF4751 /* SearchImageViewController+Tests.swift */; };
+		25B136A02A9CC3F500CF4751 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B1369F2A9CC3F500CF4751 /* Date+Formatter.swift */; };
 		25D3046D2A96690F00E4EBE3 /* LHNetworkClient in Frameworks */ = {isa = PBXBuildFile; productRef = 25D3046C2A96690F00E4EBE3 /* LHNetworkClient */; };
 		25D3047C2A96718B00E4EBE3 /* LHHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 25D3047B2A96718B00E4EBE3 /* LHHelpers */; };
 		25D304842A967E2B00E4EBE3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25D304862A967E2B00E4EBE3 /* Localizable.strings */; };
@@ -72,6 +75,7 @@
 		25D304D92A97F85F00E4EBE3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 25D304D82A97F85F00E4EBE3 /* SDWebImage */; };
 		25D304DC2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D304DB2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift */; };
 		25D9327E2A991A4300157F27 /* MainQueueDispatchDecoratorExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D9327D2A991A4300157F27 /* MainQueueDispatchDecoratorExtensionTest.swift */; };
+		25FA02C92A9BE32F0088F276 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 25FA02C82A9BE32F0088F276 /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +134,9 @@
 		259D0F4A2A99240D00C9BFB4 /* HTMLSizeMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLSizeMapperTests.swift; sourceTree = "<group>"; };
 		25AC1F402A98D0A00068FF4D /* SearchImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImagePresenter.swift; sourceTree = "<group>"; };
 		25AC1F422A98D2B60068FF4D /* AppGarden.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppGarden.xctestplan; sourceTree = "<group>"; };
+		25B136992A9C1B1600CF4751 /* SearchImageViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		25B1369C2A9C2C6900CF4751 /* SearchImageViewController+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchImageViewController+Tests.swift"; sourceTree = "<group>"; };
+		25B1369F2A9CC3F500CF4751 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		25D304852A967E2B00E4EBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		25D304872A96815B00E4EBE3 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		25D304892A96823000E4EBE3 /* ImageGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridCell.swift; sourceTree = "<group>"; };
@@ -176,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25D304D92A97F85F00E4EBE3 /* SDWebImage in Frameworks */,
+				25FA02C92A9BE32F0088F276 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,8 +260,10 @@
 		2527BAA12A9A6C7300C58948 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				25B1369B2A9C2C5000CF4751 /* TestExtensions */,
 				2527BAA32A9A6CA800C58948 /* SearchImageViewControllerTests.swift */,
 				2540CC692A9AECC500EB3FE1 /* SearchImageViewTests.swift */,
+				25B136992A9C1B1600CF4751 /* SearchImageViewControllerSnapshotTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -399,6 +409,14 @@
 				25AC1F402A98D0A00068FF4D /* SearchImagePresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		25B1369B2A9C2C5000CF4751 /* TestExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				25B1369C2A9C2C6900CF4751 /* SearchImageViewController+Tests.swift */,
+			);
+			path = TestExtensions;
 			sourceTree = "<group>";
 		};
 		25D3047D2A967D6D00E4EBE3 /* Presentation */ = {
@@ -649,6 +667,7 @@
 			children = (
 				25D304DB2A98CD9E00E4EBE3 /* XCTestCase+MemoryLeak.swift */,
 				255DEA1F2A9BBC7900A7B30E /* UIImage+Factory.swift */,
+				25B1369F2A9CC3F500CF4751 /* Date+Formatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -702,6 +721,7 @@
 			name = AppGardenTests;
 			packageProductDependencies = (
 				25D304D82A97F85F00E4EBE3 /* SDWebImage */,
+				25FA02C82A9BE32F0088F276 /* SnapshotTesting */,
 			);
 			productName = AppGardenTests;
 			productReference = 2565A4FF2A96538E0033FEDB /* AppGardenTests.xctest */;
@@ -761,6 +781,7 @@
 				25D3046B2A96690F00E4EBE3 /* XCRemoteSwiftPackageReference "LHNetworkClient" */,
 				25D3047A2A96718B00E4EBE3 /* XCRemoteSwiftPackageReference "LHHelpers" */,
 				25D304A22A96994700E4EBE3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				25FA02C52A9BE29B0088F276 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 2565A4EA2A96538C0033FEDB /* Products */;
 			projectDirPath = "";
@@ -851,11 +872,13 @@
 				255DEA1E2A9BB37500A7B30E /* ImageDetailPresenterTests.swift in Sources */,
 				255DEA272A9BBF0E00A7B30E /* ImageDetailPresenterStub.swift in Sources */,
 				2527BAA42A9A6CA800C58948 /* SearchImageViewControllerTests.swift in Sources */,
+				25B136A02A9CC3F500CF4751 /* Date+Formatter.swift in Sources */,
 				2527BA9E2A992D1D00C58948 /* SearchImageCoordinatorTests.swift in Sources */,
 				259CC86C2A9914340099A549 /* MainQueueDispatchDecoratorTests.swift in Sources */,
 				2565A5042A96538E0033FEDB /* RemoteLoadSearchItemsTests.swift in Sources */,
 				25673BF82A9AE2ED0045B17E /* SearchImagePresenterSpy.swift in Sources */,
 				2527BA982A9926E200C58948 /* DateFormatterExtensionTests.swift in Sources */,
+				25B1369A2A9C1B1600CF4751 /* SearchImageViewControllerSnapshotTests.swift in Sources */,
 				2527BAA02A993A3700C58948 /* NavigationControllerSpy.swift in Sources */,
 				259D0F4B2A99240D00C9BFB4 /* HTMLSizeMapperTests.swift in Sources */,
 				2540CC682A9AE86700EB3FE1 /* SearchImageLayoutDataSourceTests.swift in Sources */,
@@ -867,6 +890,7 @@
 				2540CC6A2A9AECC500EB3FE1 /* SearchImageViewTests.swift in Sources */,
 				25D9327E2A991A4300157F27 /* MainQueueDispatchDecoratorExtensionTest.swift in Sources */,
 				25310D822A9909E50042D18D /* Models.swift in Sources */,
+				25B1369D2A9C2C6900CF4751 /* SearchImageViewController+Tests.swift in Sources */,
 				259CC8672A990E220099A549 /* DelegateSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1243,6 +1267,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		25FA02C52A9BE29B0088F276 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1265,6 +1297,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 25D304A22A96994700E4EBE3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		25FA02C82A9BE32F0088F276 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25FA02C52A9BE29B0088F276 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

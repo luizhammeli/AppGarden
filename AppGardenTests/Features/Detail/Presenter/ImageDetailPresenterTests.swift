@@ -24,7 +24,7 @@ final class ImageDetailPresenterTests: XCTestCase {
         
         XCTAssertEqual(sut.viewModel?.items.count, 4)
         XCTAssertEqual(sut.viewModel?.items[0].value, "title")
-        XCTAssertEqual(sut.viewModel?.items[1].value, "08/27/2023")
+        XCTAssertEqual(sut.viewModel?.items[1].value, "08/28/2023")
         XCTAssertEqual(sut.viewModel?.items[2].value, "240")
         XCTAssertEqual(sut.viewModel?.items[3].value, "160")
     }

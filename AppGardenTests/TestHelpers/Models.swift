@@ -18,7 +18,7 @@ func makeFakeSearchItemResponse() -> SearchItemResponse {
                                   description: description,
                                   tags: "1",
                                   author: "auth",
-                                  dateTaken: Date(),
+                                  dateTaken: Date.makeFakeDate(strDate: "28/08/2023"),
                                   media: .init(imageURL: "https://test.com"))
     return item
 }
