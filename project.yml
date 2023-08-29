@@ -1,0 +1,116 @@
+name: AppGarden
+
+settings: 
+  MARKETING_VERSION: "1.0"
+  SWIFT_VERSION: 5.7
+  VERSIONING_SYSTEM: "apple-generic"
+  CLANG_ENABLE_OBJC_WEAK: "YES"
+  ARCHS: $(ARCHS_STANDARD)
+  CODE_SIGN_IDENTITY: ""
+  
+options:
+  xcodeVersion: "14.2"
+  createIntermediateGroups: true
+  developmentLanguage: "pt-BR"
+  bundleIdPrefix: LuizHammerli.AppGarden
+  deploymentTarget:
+    iOS: 16.4  
+
+configs:
+  Debug: debug
+  Release: release
+
+packages:
+  SnapshotTesting:
+    url: https://github.com/pointfreeco/swift-snapshot-testing
+    from: 1.10.0
+  SDWebImage:
+    url: https://github.com/SDWebImage/SDWebImage.git
+    from: 5.0.0
+  LHNetworkClient:
+    url: https://github.com/luizhammeli/LHNetworkClient
+    from: 1.0.0
+  LHHelpers:
+    url: https://github.com/luizhammeli/LHHelpers
+    from: 1.0.0
+
+targets:
+  AppGarden:
+    templates: 
+      - iOSApp
+    dependencies:
+      - package: SDWebImage
+      - package: LHNetworkClient
+      - package: LHHelpers
+  AppGardenTests:
+    templates:
+      - iOSAppTests
+    dependencies:
+      - target: AppGarden
+      - package: SDWebImage
+      - package: SnapshotTesting      
+  AppGardenUITests:
+    templates:
+      - iOSAppUITests
+    dependencies:
+      - target: AppGarden
+
+schemes:
+  AppGarden:
+    build:
+      targets:
+        AppGarden: [run, test, archive]
+    archive:
+      config: Release
+    run:
+      config: Debug
+    test: 
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets: 
+        - AppGarden
+      targets:
+        - name: AppGardenTests
+          randomExecutionOrder: true
+        - name: AppGardenUITests
+          randomExecutionOrder: true
+
+targetTemplates:
+  iOSApp:
+    platform: iOS
+    type: application
+    sources: 
+      - path: ${target_name}
+    settings:
+      base:
+        INFOPLIST_FILE: ${target_name}/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: LuizHammerli.AppGarden
+      configs:
+        Release:
+          CODE_SIGN_IDENTITY: ""
+          PROVISIONING_PROFILE_SPECIFIER: ""
+        Debug:
+          CODE_SIGN_IDENTITY: ""
+          PROVISIONING_PROFILE_SPECIFIER: ""
+
+  iOSAppTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources: 
+      - path: ${target_name}
+      #   excludes:
+      #     - "__Snapshots__"
+      #     - "**/__Snapshots__"
+      # - path: XCTestCase/
+        createIntermediateGroups: false
+        type: group
+    info:
+      path: ${target_name}/Info.plist
+  
+  iOSAppUITests: 
+    platform: iOS
+    type: bundle.ui-testing
+    sources: 
+      - path: ${target_name}
+    info:
+      path: ${target_name}/Info.plist
