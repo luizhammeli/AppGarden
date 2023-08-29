@@ -15,32 +15,6 @@ final class ImageDetailViewControllerSnapshotTests: XCTestCase {
 
         assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
     }
-    
-//    func test_snapshot_shouldShowLoader() {
-//        let sut = makeSUT()
-//
-//        sut.showLoader(isLoading: true)
-//
-//        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
-//    }
-//
-//    func test_snapshot_shouldNotShowLoader() {
-//        let sut = makeSUT()
-//
-//        sut.showLoader(isLoading: false)
-//
-//        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
-//    }
-//
-//    func test_snapshot_shouldShowGridView() {
-//        let sut = makeSUT()
-//        let items = [makeFakeSearchImageViewModel(with: makeFakeSearchItemResponse())]
-//
-//        sut.view(items: items)
-//        sut.setFakeImage(at: 0)
-//
-//        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
-//    }
 }
 
 private extension ImageDetailViewControllerSnapshotTests {
