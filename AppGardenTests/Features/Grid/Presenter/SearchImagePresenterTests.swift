@@ -21,13 +21,25 @@ final class SearchImagePresenterTests: XCTestCase {
         XCTAssertEqual(spy.queries, [query])
     }
 
-    func test_makeSearch_shouldCompleteWithErrorWithEmpryQuery() {
+    func test_makeSearch_shouldCompleteWithErrorWithEmptyQuery() {
         // Given
         let delegate = DelegateSpy()
         let (sut, _) = makeSUT(delegate: delegate)
 
         // When
         sut.makeSearch(query: String())
+
+        // Then
+        XCTAssertEqual(delegate.messages, [.error])
+    }
+    
+    func test_makeSearch_shouldCompleteWithErrorWithInvalidQuery() {
+        // Given
+        let delegate = DelegateSpy()
+        let (sut, _) = makeSUT(delegate: delegate)
+
+        // When
+        sut.makeSearch(query: "te")
 
         // Then
         XCTAssertEqual(delegate.messages, [.error])
@@ -90,7 +102,7 @@ final class SearchImagePresenterTests: XCTestCase {
         // Given
         let delegate = DelegateSpy()
         let spy = LoadSearchItemsSpy()
-        var sut: SearchImagePresenter? = SearchImagePresenter(serchLoader: spy)
+        var sut: SearchImagePresenter? = SearchImagePresenter(serchLoader: spy, throttler: ThrottlerStub())
         sut?.delegate = delegate
 
         // When
@@ -106,7 +118,7 @@ final class SearchImagePresenterTests: XCTestCase {
 private extension SearchImagePresenterTests {
     func makeSUT(delegate: DelegateSpy = DelegateSpy()) -> (SearchImagePresenter, LoadSearchItemsSpy) {
         let spy = LoadSearchItemsSpy()
-        let sut = SearchImagePresenter(serchLoader: spy)
+        let sut = SearchImagePresenter(serchLoader: spy, throttler: ThrottlerStub())
         sut.delegate = delegate
 
         trackForMemoryLeak(for: spy)

@@ -19,33 +19,42 @@ protocol SearchImagePresenterProtocol {
 
 final class SearchImagePresenter: SearchImagePresenterProtocol {
     private let serchLoader: LoadSearchItems
+    private let throttler: Throttler
     weak var delegate: SearchPresenterDelegateProtocol?
 
-    init(serchLoader: LoadSearchItems) {
+    init(serchLoader: LoadSearchItems, throttler: Throttler = DefaultThrottler()) {
         self.serchLoader = serchLoader
+        self.throttler = throttler
     }
 
     func makeSearch(query: String) {
-        guard !query.isEmpty else {
+        guard query.count > 2 else {
             delegate?.showError()
             return
         }
-
-        delegate?.showLoader(isLoading: true)
-        serchLoader.search(query: query) { [weak self] result in
-            guard let self = self else { return }
-            self.delegate?.showLoader(isLoading: false)
-
-            switch result {
-            case .success(let items):
-                if items.isEmpty {
+        
+        throttler.throttle { [weak self] in
+            self?.delegate?.showLoader(isLoading: true)
+            
+            self?.serchLoader.search(query: query) { [weak self] result in
+                guard let self = self else { return }
+                self.delegate?.showLoader(isLoading: false)
+                
+                switch result {
+                case .success(let items):
+                    checkSuccessResponse(with: items)
+                case .failure:
                     self.delegate?.showError()
-                } else {
-                    self.delegate?.view(items: self.mapSuccessResult(items: items))
                 }
-            case .failure:
-                self.delegate?.showError()
             }
+        }
+    }
+    
+    private func checkSuccessResponse(with items: [SearchItemResponse]) {
+        if items.isEmpty {
+            self.delegate?.showError()
+        } else {
+            self.delegate?.view(items: self.mapSuccessResult(items: items))
         }
     }
 
