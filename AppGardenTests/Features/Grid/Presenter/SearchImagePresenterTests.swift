@@ -1,5 +1,5 @@
 //
-//  SearchImagePresenter.swift
+//  SearchImagePresenterTests.swift
 //  AppGardenTests
 //
 //  Created by Luiz Diniz Hammerli on 25/08/23.
@@ -84,6 +84,22 @@ final class SearchImagePresenterTests: XCTestCase {
 
         // Then
         XCTAssertEqual(delegate.messages, [.loader(isLoading: true), .loader(isLoading: false), .view(items: expectedResult)])
+    }
+    
+    func test_makeSearch_shouldNotCompleteWithResultIfInstanceHasBeenDealocated() {
+        // Given
+        let delegate = DelegateSpy()
+        let spy = LoadSearchItemsSpy()
+        var sut: SearchImagePresenter? = SearchImagePresenter(serchLoader: spy)
+        sut?.delegate = delegate
+
+        // When
+        sut?.makeSearch(query: "test")
+        sut = nil
+        spy.complete(with: .failure(.unexpected))
+
+        // Then
+        XCTAssertEqual(delegate.messages, [.loader(isLoading: true)])
     }
 }
 
