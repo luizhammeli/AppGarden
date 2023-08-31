@@ -22,4 +22,8 @@ final class HTTPClientSpy: HTTPClient {
     func complete(with result: Result<SearchResponse, LHNetworkClient.HttpError>, at index: Int = 0) {
         completions[index](result)
     }
+    
+    func fetch(provider: HttpClientProvider, completion: @escaping (Result<Data, HttpError>) -> Void) {
+        
+    }
 }

@@ -32,8 +32,8 @@ final class ImageGridCell: UICollectionViewCell {
 
     func set(url: URL?, accessibilityTitle: String) {
         accessibilityLabel = accessibilityTitle
-        imageView.sd_setImage(with: url) { image, _, _, _ in
-            self.image = image
+        imageView.sd_setImage(with: url) { [weak self] image, _, _, _ in
+            self?.image = image
         }
     }
 
