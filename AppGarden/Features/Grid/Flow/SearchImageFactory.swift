@@ -13,6 +13,8 @@ protocol SearchImageFactory {
 }
 
 extension DependencyContainer: SearchImageFactory {
+    static var imageLoader: ImageLoader = makeImageLoader()
+    
     func makeSearchImageViewController(coordinator: SearchImageCoordinator) -> SearchImageViewController {
         let client = URLSessionHttpClient()
         let useCase = RemoteLoadSearchItems(client: client)
@@ -24,7 +26,7 @@ extension DependencyContainer: SearchImageFactory {
         return controller
     }
     
-    func makeImageLoader(client: HTTPClient = URLSessionHttpClient(),
+    static func makeImageLoader(client: HTTPClient = URLSessionHttpClient(),
                          cacheClient: CacheClient = NSCacheClient()) -> ImageLoader {
         let remoteImageLoader = RemoteImageLoader(client: client)
         let decorator = MainQueueDispatchDecorator(instance: remoteImageLoader)
@@ -36,7 +38,6 @@ extension DependencyContainer: SearchImageFactory {
     }
     
     func makeCellController(items: [SearchImageViewModel]) -> [ImageGridCellController] {
-        let imageLoader = makeImageLoader()
-        return items.map { ImageGridCellController(imageLoader: imageLoader, item: $0) }
+        return items.map { ImageGridCellController(imageLoader: DependencyContainer.imageLoader, item: $0) }
     }
 }

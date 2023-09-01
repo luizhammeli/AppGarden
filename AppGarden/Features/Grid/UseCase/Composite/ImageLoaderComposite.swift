@@ -19,9 +19,11 @@ final class ImageLoaderComposite: ImageLoader {
     func load(url: URL?, completion: @escaping (Data?) -> Void) {
         primary.load(url: url, completion: { [weak self] data in
             guard let data = data else {
+                print("App: Will fetch remote image")
                 self?.fallback.load(url: url, completion: completion)
                 return
             }
+            print("APP: Image alredy cached")
             completion(data)
         })
     }

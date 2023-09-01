@@ -19,7 +19,9 @@ final class RemoteLoadImageWithCache: ImageLoader {
     func load(url: URL?, completion: @escaping (Data?) -> Void) {
         imageLoader.load(url: url) { [weak self] data in
             if let data = data {
+                print("App: Will cache image")
                 self?.cacheImage.save(strURL: url?.description ?? "", data: data)
+                print("App: FetchedImage")
                 completion(data)
             }
             completion(nil)

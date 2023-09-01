@@ -21,12 +21,14 @@ final class NSCacheClient: CacheClient {
     }
     
     func fetch(with key: String) -> DataCache? {
+        print("App Garder: Will fetch local image: \(key)")
         return cache.object(forKey: NSString(string: key))
     }
     
     func save(key: String, data: Data) {
         let dataCache = DataCache(key: key, value: data, date: Date())
         cache.setObject(dataCache, forKey: NSString(string: key))
+        print("App Garder: Did save local image: \(key)")
     }
     
     func remove(key: String) {
