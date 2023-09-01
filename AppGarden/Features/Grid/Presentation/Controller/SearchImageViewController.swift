@@ -13,7 +13,7 @@ final class SearchImageViewController: CustomViewController<SearchImageView> {
     private let presenter: SearchImagePresenterProtocol
     private let layoutDataSource: GridViewFlowLayoutDataSourceProtocol
 
-    private var searchItems: [SearchImageViewModel] = [] {
+    private var searchItems: [ImageGridCellController] = [] {
         didSet {
             customView.collectionView.reloadData()
         }
@@ -86,10 +86,11 @@ extension SearchImageViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ImageGridCell
-        let item = searchItems[indexPath.item]
-        cell.set(url: item.imageURL, accessibilityTitle: item.accessibilityTitle)
-        return cell
+//        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ImageGridCell
+//        let item = searchItems[indexPath.item]
+//        cell.set(url: item.imageURL, accessibilityTitle: item.accessibilityTitle)
+        return searchItems[indexPath.item].cellForItem(collectionView: collectionView,
+                                                       indexPath: indexPath)
     }
 }
 
@@ -98,7 +99,7 @@ extension SearchImageViewController: UICollectionViewDataSource {
 extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? ImageGridCell
-        coordinator.goToDetail(image: cell?.image, viewModel: searchItems[indexPath.item])
+        coordinator.goToDetail(image: cell?.image, viewModel: searchItems[indexPath.item].item)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -118,7 +119,7 @@ extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewD
 // MARK: SearchPresenterDelegateProtocol
 
 extension SearchImageViewController: SearchPresenterDelegateProtocol {
-    func view(items: [SearchImageViewModel]) {
+    func view(items: [ImageGridCellController]) {
         customView.searchErrorView.isHidden = true
         self.searchItems = items
     }

@@ -17,10 +17,26 @@ extension DependencyContainer: SearchImageFactory {
         let client = URLSessionHttpClient()
         let useCase = RemoteLoadSearchItems(client: client)
         let decorator = MainQueueDispatchDecorator(instance: useCase)
-        let presenter = SearchImagePresenter(serchLoader: decorator)
+        let presenter = SearchImagePresenter(serchLoader: decorator, cellFactory: makeCellController)        
         let layoutDataSource = SearchImageLayoutDataSource()
         let controller = SearchImageViewController(presenter: presenter, coordinator: coordinator, layoutDataSource: layoutDataSource)
         presenter.delegate = controller
         return controller
+    }
+    
+    func makeImageLoader(client: HTTPClient = URLSessionHttpClient(),
+                         cacheClient: CacheClient = NSCacheClient()) -> ImageLoader {
+        let remoteImageLoader = RemoteImageLoader(client: client)
+        let decorator = MainQueueDispatchDecorator(instance: remoteImageLoader)
+        let localImageLoader = LocalImageLoader(client: cacheClient)
+        let cacheImage = LocalCacheImage(client: cacheClient)
+        let imageLoaderWithCache = RemoteLoadImageWithCache(imageLoader: decorator,
+                                                            cacheImage: cacheImage)
+        return ImageLoaderComposite(primary: localImageLoader, fallback: imageLoaderWithCache)
+    }
+    
+    func makeCellController(items: [SearchImageViewModel]) -> [ImageGridCellController] {
+        let imageLoader = makeImageLoader()
+        return items.map { ImageGridCellController(imageLoader: imageLoader, item: $0) }
     }
 }

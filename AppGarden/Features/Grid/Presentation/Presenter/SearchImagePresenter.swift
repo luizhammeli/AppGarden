@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchPresenterDelegateProtocol: AnyObject {
-    func view(items: [SearchImageViewModel])
+    func view(items: [ImageGridCellController])
     func showLoader(isLoading: Bool)
     func showError()
 }
@@ -18,13 +18,18 @@ protocol SearchImagePresenterProtocol {
 }
 
 final class SearchImagePresenter: SearchImagePresenterProtocol {
+    typealias CellFactory = (([SearchImageViewModel]) -> [ImageGridCellController])
     private let serchLoader: LoadSearchItems
     private let throttler: Throttler
+    private let cellFactory: (([SearchImageViewModel]) -> [ImageGridCellController])
     weak var delegate: SearchPresenterDelegateProtocol?
 
-    init(serchLoader: LoadSearchItems, throttler: Throttler = DefaultThrottler()) {
+    init(serchLoader: LoadSearchItems,
+         cellFactory: @escaping CellFactory,
+         throttler: Throttler = DefaultThrottler()) {
         self.serchLoader = serchLoader
         self.throttler = throttler
+        self.cellFactory = cellFactory
     }
 
     func makeSearch(query: String) {
@@ -54,7 +59,9 @@ final class SearchImagePresenter: SearchImagePresenterProtocol {
         if items.isEmpty {
             self.delegate?.showError()
         } else {
-            self.delegate?.view(items: self.mapSuccessResult(items: items))
+            let viewModels = self.mapSuccessResult(items: items)
+            let controllers = cellFactory(viewModels)
+            self.delegate?.view(items: controllers)
         }
     }
 

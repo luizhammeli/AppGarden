@@ -16,7 +16,7 @@ protocol CacheClient {
 final class NSCacheClient: CacheClient {
     let cache: NSCache<NSString, DataCache>
 
-    init(cache: NSCache<NSString, DataCache>) {
+    init(cache: NSCache<NSString, DataCache> = NSCache<NSString, DataCache>()) {
         self.cache = cache
     }
     
@@ -31,17 +31,5 @@ final class NSCacheClient: CacheClient {
     
     func remove(key: String) {
         cache.removeObject(forKey: NSString(string: key))
-    }
-}
-    
-final class DataCache {
-    let key: String
-    let date: Date
-    let value: Data
-    
-    init(key: String, value: Data, date: Date) {
-        self.key = key
-        self.date = date
-        self.value = value
     }
 }

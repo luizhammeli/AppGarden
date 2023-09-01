@@ -14,24 +14,9 @@ final class LocalImageLoader: ImageLoader {
         self.client = client
     }
     
-    func load(strURL: String, completion: @escaping (Data?) -> Void) {
-        let cachedData = client.fetch(with: strURL)
+    func load(url: URL?, completion: @escaping (Data?) -> Void) {
+        guard let url = url else { return completion(nil) }
+        let cachedData = client.fetch(with: url.description)
         completion(cachedData?.value)
-    }
-}
-
-protocol CacheImage {
-    func save(strURL: String, data: Data)
-}
-
-final class LocalCacheImage: CacheImage {
-    let client: CacheClient
-
-    init(client: CacheClient) {
-        self.client = client
-    }
-    
-    func save(strURL: String, data: Data) {
-        client.save(key: strURL, data: data)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import LHNetworkClient
 
 protocol ImageLoader {
-    func load(strURL: String, completion: @escaping (Data?) -> Void)
+    func load(url: URL?, completion: @escaping (Data?) -> Void)
 }
 
 final class RemoteImageLoader: ImageLoader {
@@ -19,8 +19,8 @@ final class RemoteImageLoader: ImageLoader {
         self.client = client
     }
     
-    func load(strURL: String, completion: @escaping (Data?) -> Void) {
-        guard let url = URL(string: strURL) else { return }
+    func load(url: URL?, completion: @escaping (Data?) -> Void) {
+        guard let url = url else { return completion(nil) }
         let provider = ImageLoaderProvider(url: url)
         client.fetch(provider: provider) { result in
             switch result {

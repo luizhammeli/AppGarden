@@ -36,6 +36,14 @@ final class ImageGridCell: UICollectionViewCell {
             self?.image = image
         }
     }
+    
+    func set(data: Data, accessibilityTitle: String) {
+        accessibilityLabel = accessibilityTitle
+        alpha = 0
+        image = UIImage(data: data)
+        imageView.image = image
+        UIView.animate(withDuration: 0.25) { [weak self] in self?.alpha = 1 }
+    }
 
     override func prepareForReuse() {
         super.prepareForReuse()
