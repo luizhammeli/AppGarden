@@ -16,6 +16,15 @@ struct Spacing {
     static let xxLarge: CGFloat = 36.0
 }
 
+struct Padding {
+    static let superSmall: CGFloat = 18.0
+    static let small: CGFloat = 24.0
+    static let medium: CGFloat = 36.0
+    static let large: CGFloat = 48.0
+    static let extraLarge: CGFloat = 60.0
+    static let xxLarge: CGFloat = 72.0
+}
+
 struct BorderRadius {
     static let small: CGFloat = 10.0
     static let medium: CGFloat = 12.0

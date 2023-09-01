@@ -23,4 +23,15 @@ extension DependencyContainer: SearchImageFactory {
         presenter.delegate = controller
         return controller
     }
+    
+    func makeSearchGridView(client: HTTPClient = URLSessionHttpClient()) -> SearchGridMainView {        
+        let useCase = RemoteLoadSearchItems(client: client)
+        let decorator = MainQueueDispatchDecorator(instance: useCase)
+        let presenter = SearchImagePresenter(serchLoader: decorator)
+        let layoutDataSource = SearchImageLayoutDataSource()
+        let controller = SearchGridController(presenter: presenter)
+        let view = SearchGridMainView(controller: controller, layoutMapper: layoutDataSource)
+        presenter.delegate = controller
+        return view
+    }
 }
