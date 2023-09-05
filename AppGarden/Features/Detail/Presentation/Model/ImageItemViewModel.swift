@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct ImageItemViewModel {
+struct ImageItemViewModel: Hashable {
     let title: String
     let value: String
+    let isLastItem: Bool
 }

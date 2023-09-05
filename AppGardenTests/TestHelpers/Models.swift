@@ -35,8 +35,8 @@ func makeFakeSearchImageViewModel(with itemResponse: SearchItemResponse) -> Sear
 }
 
 func makeDetailViewModel() -> ImageDetailViewModel {
-    return ImageDetailViewModel(items: [.init(title: "Title", value: "Value"),
-                                        .init(title: "Second Title", value: "Second Value")],
+    return ImageDetailViewModel(items: [.init(title: "Title", value: "Value", isLastItem: false),
+                                        .init(title: "Second Title", value: "Second Value", isLastItem: true)],
                                 image: UIImage.make(withColor: .red),
-                                size: CGSize(width: 150, height: 150))
+                                size: CGSize(width: 150, height: 150), url: nil)
 }

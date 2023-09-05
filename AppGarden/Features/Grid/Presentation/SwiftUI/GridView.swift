@@ -17,7 +17,7 @@ struct GridView: View {
                 LazyVGrid (columns: getGridColumns(proxy.size.width), spacing: Spacing.superSmall, content: {
                     ForEach(items, id: \.imageURL) { item in
                         NavigationLink {
-                            Text(item.title)
+                            DependencyContainer().makeImageDetailView(viewModel: item)
                         } label: {
                             AsyncImage(url: item.imageURL) { image in
                                 image.resizable()

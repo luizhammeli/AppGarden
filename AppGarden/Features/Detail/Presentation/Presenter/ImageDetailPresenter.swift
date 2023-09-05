@@ -21,10 +21,10 @@ final class ImageDetailPresenter: ImageDetailPresenterProtocol {
     private func mapData(image: UIImage, viewModel: SearchImageViewModel) {
         let strWidth = String(Int(viewModel.size.width))
         let strHeight = String(Int(viewModel.size.height))
-        let items = [ImageItemViewModel(title: L10n.imageTitle, value: viewModel.title),
-                     ImageItemViewModel(title: L10n.imageDate, value: viewModel.date),
-                     ImageItemViewModel(title: L10n.imageHeight, value: strHeight),
-                     ImageItemViewModel(title: L10n.imageWidth, value: strWidth)]
-        self.viewModel = ImageDetailViewModel(items: items, image: image, size: viewModel.size)
+        let items = [ImageItemViewModel(title: L10n.imageTitle, value: viewModel.title, isLastItem: false),
+                     ImageItemViewModel(title: L10n.imageDate, value: viewModel.date, isLastItem: false),
+                     ImageItemViewModel(title: L10n.imageHeight, value: strHeight, isLastItem: false),
+                     ImageItemViewModel(title: L10n.imageWidth, value: strWidth, isLastItem: true)]
+        self.viewModel = ImageDetailViewModel(items: items, image: image, size: viewModel.size, url: viewModel.imageURL)
     }
 }

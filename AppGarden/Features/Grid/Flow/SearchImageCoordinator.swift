@@ -13,11 +13,12 @@ protocol SearchImageCoordinatorProtocol: AnyObject {
 }
 
 final class SearchImageCoordinator: Coordinator {
+    typealias Factory = SearchImageFactory & ImageDetailFactory
     private var navigationController: UINavigationController
-    private let factory: SearchImageFactory
+    private let factory: Factory
     private let window: UIWindow?
 
-    init(navigationController: UINavigationController = UINavigationController(), factory: SearchImageFactory, window: UIWindow?) {
+    init(navigationController: UINavigationController = UINavigationController(), factory: Factory, window: UIWindow?) {
         self.navigationController = navigationController
         self.factory = factory
         self.window = window
@@ -33,7 +34,7 @@ final class SearchImageCoordinator: Coordinator {
 extension SearchImageCoordinator: SearchImageCoordinatorProtocol {
     func goToDetail(image: UIImage?, viewModel: SearchImageViewModel?) {
         guard let image = image, let viewModel = viewModel else { return }
-        let presenter = ImageDetailPresenter(image: image, viewModel: viewModel)
-        navigationController.pushViewController(ImageDetailViewController(presenter: presenter), animated: true)
+        let controller = factory.makeSearchImageViewController(image: image, viewModel: viewModel)
+        navigationController.pushViewController(controller, animated: true)
     }
 }

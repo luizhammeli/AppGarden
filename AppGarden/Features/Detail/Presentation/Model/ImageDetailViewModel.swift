@@ -11,4 +11,5 @@ struct ImageDetailViewModel {
     let items: [ImageItemViewModel]
     let image: UIImage
     let size: CGSize
+    let url: URL?
 }
