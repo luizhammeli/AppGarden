@@ -37,62 +37,12 @@ struct DetailView: View {
     }
 }
 
-final class DetailController: ObservableObject {
-    let presenter: ImageDetailPresenterProtocol
-    @Published var viewModel: ImageDetailViewModel?
-    
-    init(presenter: ImageDetailPresenterProtocol) {
-        self.presenter = presenter
-        self.viewModel = presenter.viewModel
-    }
-}
-
-struct InfoContainerRowView: View {
-    let viewModel: ImageItemViewModel
-
-    init(viewModel: ImageItemViewModel) {
-        self.viewModel = viewModel
-    }
-
-    var body: some View {
-        VStack {
-            HStack {
-                Text(viewModel.title)
-                    .font(.system(size: FontSizeConstants.small))
-                    .foregroundColor(Color(UIColor.secondaryLabel))
-                Spacer()
-                Text(viewModel.value).font(.system(size: FontSizeConstants.small, weight: .bold))
-            }
-            
-            Color(UIColor.systemBackground).frame(height: 1).opacity(viewModel.isLastItem ? 0 : 1)
-        }
-        .padding(.top, Spacing.medium)
-        .padding(.horizontal, Spacing.large)
-    }
-}
-
-struct InfoContainerView: View {
-    let items: [ImageItemViewModel]
-
-    init(items: [ImageItemViewModel]?) {
-        self.items = items ?? []
-    }
-
-    var body: some View {
-        VStack(spacing: Spacing.superSmall) {
-            ForEach(items, id: \.self) { InfoContainerRowView(viewModel: $0) }
-        }.padding(.bottom, Spacing.small)
-        .background(Color(UIColor.secondarySystemBackground))
-         .cornerRadius(BorderRadius.small)
-    }
-}
-
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         let url = URL(string: "https:\\live.staticflickr.com/65535/52878785248_4833bdefd8_m.jpg")
         let presenter = ImageDetailPresenter(image: UIImage(), viewModel: .init(imageURL: url,
                                                                                 size: .init(width: 240, height: 160),
-                                                                                title: "Saosin New York",
+                                                                                title: "New York Show",
                                                                                 accessibilityTitle: "",
                                                                                 tags: "Saosin",
                                                                                 author: "198245544",
