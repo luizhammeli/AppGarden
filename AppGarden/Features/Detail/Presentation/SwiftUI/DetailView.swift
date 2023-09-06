@@ -21,8 +21,7 @@ struct DetailView: View {
                     image.resizable()
                         .scaledToFill()
                         .frame(width: controller.viewModel?.size.width,
-                               height: controller.viewModel?.size.height)
-                        .clipped()
+                               height: controller.viewModel?.size.height)                        
                         .cornerRadius(BorderRadius.medium)
                         .shadow(radius: 3.5, x: 0, y: 5)
                 } placeholder: {}
