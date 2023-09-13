@@ -12,7 +12,6 @@ import XCTest
 final class ImageDetailViewControllerSnapshotTests: XCTestCase {
     func test_snapshot_shouldErrorView() {
         let (_, navController) = makeSUT()
-
         assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
     }
 }
