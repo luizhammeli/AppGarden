@@ -29,10 +29,13 @@ packages:
     from: 5.0.0
   LHNetworkClient:
     url: https://github.com/luizhammeli/LHNetworkClient
-    from: 1.0.0
+    from: 1.0.1
   LHHelpers:
     url: https://github.com/luizhammeli/LHHelpers
-    from: 1.0.0
+    from: 1.0.1
+  LHDSComponents:
+    url: https://github.com/luizhammeli/LHDSComponents.git
+    from: 1.0.4
 
 targets:
   AppGarden:
@@ -42,13 +45,15 @@ targets:
       - package: SDWebImage
       - package: LHNetworkClient
       - package: LHHelpers
+      - package: LHDSComponents
   AppGardenTests:
     templates:
       - iOSAppTests
     dependencies:
       - target: AppGarden
       - package: SDWebImage
-      - package: SnapshotTesting      
+      - package: SnapshotTesting
+      - package: LHDSComponents
   AppGardenUITests:
     templates:
       - iOSAppUITests

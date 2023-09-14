@@ -9,6 +9,7 @@ import UIKit
 
 struct ImageDetailViewModel {
     let items: [ImageItemViewModel]
+    let tags: [String]
     let image: UIImage
     let size: CGSize
 }

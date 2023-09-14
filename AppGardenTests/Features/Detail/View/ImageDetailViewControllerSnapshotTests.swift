@@ -10,10 +10,14 @@ import XCTest
 @testable import AppGarden
 
 final class ImageDetailViewControllerSnapshotTests: XCTestCase {
-    func test_snapshot_shouldErrorView() {
+    func test_snapshot_shouldShowDetailView() {
         let (_, navController) = makeSUT()
-
         assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
+    }
+    
+    func test_snapshot_shouldShowDetailViewInLandscapeMode() {
+        let (_, navController) = makeSUT()
+        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.landscape)))
     }
 }
 
