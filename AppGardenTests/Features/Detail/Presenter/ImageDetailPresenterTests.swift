@@ -29,9 +29,15 @@ final class ImageDetailPresenterTests: XCTestCase {
         XCTAssertEqual(sut.viewModel?.items[3].value, "160")
     }
     
+    func test_mapData_shouldReturnCorrectTagsArray() {
+        let sut = makeSUT()
+
+        XCTAssertEqual(sut.viewModel?.tags, ["first", "second", "third"])
+    }
+    
     func test_mapData_shouldReturnCorrecSize() {
         let sut = makeSUT()
-        
+
         XCTAssertEqual(sut.viewModel?.size, CGSize(width: 160, height: 240))
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import LHDSComponents
 @testable import AppGarden
 
 final class ImageDetailViewControllerTests: XCTestCase {
@@ -25,6 +26,12 @@ final class ImageDetailViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.detailRowViewData.title, item?.title)
         XCTAssertEqual(sut.detailRowViewData.value, item?.value)
     }
+    
+    func test_setupData_shouldShowTagView() {
+        let (sut, _) = makeSUT()
+
+        XCTAssertNotNil(sut.tagView)
+    }
 }
 
 private extension ImageDetailViewControllerTests {
@@ -43,13 +50,24 @@ private extension ImageDetailViewControllerTests {
 
 extension ImageDetailViewController {
     var imageView: UIImageView? {
-        ((customView.subviews.first as? CustomImageView)?.subviews.first as? UIImageView)
+        let customImageView = (mainStackView?.arrangedSubviews.first as? UIStackView)?.arrangedSubviews[1] as? CustomImageView
+        return (customImageView?.subviews.first as? UIImageView)
     }
     
     var detailRowView: DetailRowView? {
-        (((customView.subviews.last as? DetailInfoContainerView)?
+        (((mainStackView?.arrangedSubviews[1] as? DetailInfoContainerView)?
             .subviews.last as? UIStackView)?
             .arrangedSubviews.first as? DetailRowView)
+    }
+    
+    var tagView: TagView? {
+        mainStackView?.arrangedSubviews.last as? TagView
+    }
+    
+    private var mainStackView: UIStackView? {
+        (((customView.subviews.last as? UIScrollView)?
+            .subviews.last as? UIView)?
+            .subviews.last as? UIStackView)
     }
     
     var detailRowViewData: (title: String?, value: String?) {
