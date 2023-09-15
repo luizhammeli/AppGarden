@@ -32,7 +32,7 @@ packages:
     from: 1.0.1
   LHHelpers:
     url: https://github.com/luizhammeli/LHHelpers
-    from: 1.0.1
+    from: 1.0.2
   LHDSComponents:
     url: https://github.com/luizhammeli/LHDSComponents.git
     from: 1.0.5
@@ -52,8 +52,7 @@ targets:
     dependencies:
       - target: AppGarden
       - package: SDWebImage
-      - package: SnapshotTesting
-      - package: LHDSComponents
+      - package: SnapshotTesting      
   AppGardenUITests:
     templates:
       - iOSAppUITests
