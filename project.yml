@@ -35,7 +35,7 @@ packages:
     from: 1.0.1
   LHDSComponents:
     url: https://github.com/luizhammeli/LHDSComponents.git
-    from: 1.0.4
+    from: 1.0.5
 
 targets:
   AppGarden:
