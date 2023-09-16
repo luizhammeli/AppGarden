@@ -27,9 +27,9 @@ jobs:
       
     - name: xcodegen
       uses: xavierLowmiller/xcodegen-action@1.1.2
-        with:
-          spec: project.yml
-          quiet: true
+      with:
+        spec: project.yml
+        quiet: true
 
     - name: Generate project
       run: xcodegen generate
