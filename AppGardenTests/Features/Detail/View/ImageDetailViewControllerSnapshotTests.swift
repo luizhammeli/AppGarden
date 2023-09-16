@@ -12,12 +12,12 @@ import XCTest
 final class ImageDetailViewControllerSnapshotTests: XCTestCase {
     func test_snapshot_shouldShowDetailView() {
         let (_, navController) = makeSUT()
-        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone13Pro(.portrait)))
     }
     
     func test_snapshot_shouldShowDetailViewInLandscapeMode() {
         let (_, navController) = makeSUT()
-        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.landscape)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone13Pro(.landscape)))
     }
 }
 
