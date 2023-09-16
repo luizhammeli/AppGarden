@@ -12,7 +12,6 @@ jobs:
   build-and-test:
     # The type of runner that the job will run on
     runs-on: macos-latest
-
     timeout-minutes: 10
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -26,11 +25,11 @@ jobs:
     - name: Xcode version
       run: /usr/bin/xcodebuild -version
       
-    - uses: xavierLowmiller/xcodegen-action@1.1.2
+    - name: xcodegen
+        uses: xavierLowmiller/xcodegen-action@1.1.2
         with:
           spec: project.yml
           quiet: true
-          version: '2.15.1'
 
       - name: Generate project
         run: xcodegen generate
