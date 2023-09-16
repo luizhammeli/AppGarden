@@ -102,10 +102,9 @@ targetTemplates:
     type: bundle.unit-test
     sources: 
       - path: ${target_name}
-      #   excludes:
-      #     - "__Snapshots__"
-      #     - "**/__Snapshots__"
-      # - path: XCTestCase/
+        excludes:
+            - "__Snapshots__"
+            - "**/__Snapshots__"
         createIntermediateGroups: false
         type: group
     info:
