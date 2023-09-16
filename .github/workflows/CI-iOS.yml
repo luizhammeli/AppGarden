@@ -27,11 +27,10 @@ jobs:
       run: /usr/bin/xcodebuild -version
       
     - name: xcodegen
-        uses: xavierLowmiller/xcodegen-action@1.1.2
-        with:
-          spec: project.yml
-          quiet: true
-          version: '2.15.1'
+        uses: nightstory/setup-xcodegen@v1
+        with:          
+          enable-cache: true
+          version: latest
 
       - name: Generate project
         run: xcodegen generate
