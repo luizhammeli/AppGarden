@@ -14,7 +14,7 @@ options:
   developmentLanguage: "pt-BR"
   bundleIdPrefix: LuizHammerli.AppGarden
   deploymentTarget:
-    iOS: 16.4  
+    iOS: 16.2
 
 configs:
   Debug: debug
