@@ -31,6 +31,7 @@ jobs:
         with:
           spec: project.yml
           quiet: true
+          version: '2.15.1'
 
       - name: Generate project
         run: xcodegen generate
