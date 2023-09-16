@@ -38,4 +38,4 @@ jobs:
         xcrun simctl erase all
       
     - name: Build and Test
-      run: xcodebuild clean build test -scheme "AppGarden" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro,OS=16.4" ONLY_ACTIVE_ARCH=YES
+      run: xcodebuild clean build test -scheme "AppGarden" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 13 Pro,OS=16.4" ONLY_ACTIVE_ARCH=YES
