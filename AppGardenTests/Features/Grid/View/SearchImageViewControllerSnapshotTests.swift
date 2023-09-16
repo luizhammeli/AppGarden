@@ -15,7 +15,7 @@ final class SearchImageViewControllerSnapshotTests: XCTestCase {
 
         sut.showError()
 
-        assertSnapshot(matching: navController, as: .image(on: .iPhone13Pro(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait)))
     }
     
     func test_snapshot_shouldShowLoader() {
@@ -23,7 +23,7 @@ final class SearchImageViewControllerSnapshotTests: XCTestCase {
 
         sut.showLoader(isLoading: true)
 
-        assertSnapshot(matching: navController, as: .image(on: .iPhone13Pro(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait)))
     }
     
     func test_snapshot_shouldNotShowLoader() {
@@ -31,7 +31,7 @@ final class SearchImageViewControllerSnapshotTests: XCTestCase {
 
         sut.showLoader(isLoading: false)
 
-        assertSnapshot(matching: navController, as: .image(on: .iPhone13Pro(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait)))
     }
     
     func test_snapshot_shouldShowGridView() {
@@ -41,7 +41,7 @@ final class SearchImageViewControllerSnapshotTests: XCTestCase {
         sut.view(items: items)
         sut.setFakeImage(at: 0)        
 
-        assertSnapshot(matching: navController, as: .image(on: .iPhone13Pro(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait)))
     }
 }
 
