@@ -47,6 +47,7 @@ final class SearchImageViewControllerSnapshotTests: XCTestCase {
 
 private extension SearchImageViewControllerSnapshotTests {
     func makeSUT() -> (SearchImageViewController, UINavigationController) {
+        SnapshotTesting.diffTool = "ksdiff"
         let dummyCoordinator = SearchImageCoordinatorSpy()
         let dummyPresenter = SearchImagePresenterSpy()
         let sut = SearchImageViewController(presenter: dummyPresenter,

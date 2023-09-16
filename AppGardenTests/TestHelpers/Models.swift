@@ -34,10 +34,10 @@ func makeFakeSearchImageViewModel(with itemResponse: SearchItemResponse) -> Sear
                  date: itemResponse.dateTaken.formatToDefault())
 }
 
-func makeDetailViewModel() -> ImageDetailViewModel {
+func makeDetailViewModel(tags: [String] = ["FirstTest", "SecondTest"]) -> ImageDetailViewModel {
     return ImageDetailViewModel(items: [.init(title: "Title", value: "Value"),
                                         .init(title: "Second Title", value: "Second Value")],
-                                tags: ["FirstTest", "SecondTest"],
+                                tags: tags,
                                 image: UIImage.make(withColor: .red),
                                 size: CGSize(width: 150, height: 150))
 }
