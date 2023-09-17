@@ -12,7 +12,7 @@ import XCTest
 final class ImageDetailViewControllerSnapshotTests: XCTestCase {
     func test_snapshot_shouldShowDetailView() {
         let (_, navController) = makeSUT(tags: ["FirstTest", "SecondTest"])
-        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait)))
+        assertSnapshot(matching: navController, as: .image(size: CGSize(width: 375, height: 667)))
     }
     
     func test_snapshot_shouldShowDetailViewWithOneTag() {
