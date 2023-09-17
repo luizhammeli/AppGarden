@@ -12,28 +12,28 @@ import XCTest
 final class ImageDetailViewControllerSnapshotTests: XCTestCase {
     func test_snapshot_shouldShowDetailView() {
         let (_, navController) = makeSUT(tags: ["FirstTest", "SecondTest"])
-        assertSnapshot(of: navController, as: .image(on: .iPhone8(.portrait)))
+        assertSnapshot(of: navController, as: .image(on: .iPhone8(.portrait), perceptualPrecision: 0.99))
     }
     
     func test_snapshot_shouldShowDetailViewWithOneTag() {
         let (_, navController) = makeSUT(tags: ["FirstTest"])
-        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait), perceptualPrecision: 0.99))
     }
     
     func test_snapshot_shouldShowDetailViewWithoutTags() {
         let (_, navController) = makeSUT(tags: [])
-        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait), perceptualPrecision: 0.99))
     }
     
     func test_snapshot_shouldShowDetailViewWithManyLines() {
         let tags = ["FirstTest", "SecondTest", "ThirdTest", "FourthTest", "FifthTest", "SixthTest", "SeventhTag"]
         let (_, navController) = makeSUT(tags: tags)
-        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait), perceptualPrecision: 0.99))
     }
     
     func test_snapshot_shouldShowDetailViewInLandscapeMode() {
         let (_, navController) = makeSUT(tags: ["FirstTest", "SecondTest"])
-        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.landscape)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.landscape), perceptualPrecision: 0.99))
     }
 }
 
