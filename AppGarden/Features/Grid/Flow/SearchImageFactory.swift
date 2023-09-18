@@ -27,7 +27,7 @@ extension DependencyContainer: SearchImageFactory {
     }
     
     static func makeImageLoader(client: HTTPClient = URLSessionHttpClient(),
-                         cacheClient: CacheClient = NSCacheClient()) -> ImageLoader {
+                                cacheClient: CacheClient = NSCacheClient()) -> ImageLoader {
         let remoteImageLoader = RemoteImageLoader(client: client)
         let decorator = MainQueueDispatchDecorator(instance: remoteImageLoader)
         let localImageLoader = LocalImageLoader(client: cacheClient)

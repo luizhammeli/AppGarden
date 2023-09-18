@@ -24,9 +24,6 @@ packages:
   SnapshotTesting:
     url: https://github.com/pointfreeco/swift-snapshot-testing
     from: 1.10.0
-  SDWebImage:
-    url: https://github.com/SDWebImage/SDWebImage.git
-    from: 5.0.0
   LHNetworkClient:
     url: https://github.com/luizhammeli/LHNetworkClient
     from: 1.0.1
@@ -42,7 +39,6 @@ targets:
     templates: 
       - iOSApp
     dependencies:
-      - package: SDWebImage
       - package: LHNetworkClient
       - package: LHHelpers
       - package: LHDSComponents
@@ -50,8 +46,7 @@ targets:
     templates:
       - iOSAppTests
     dependencies:
-      - target: AppGarden
-      - package: SDWebImage
+      - target: AppGarden      
       - package: SnapshotTesting      
   AppGardenUITests:
     templates:
