@@ -22,12 +22,12 @@
         let app = XCUIApplication()
         app.launch()
         
-        let searchBar = app.searchFields["Buscar"]
+        let searchBar = app.searchFields["Search"]
         
         searchBar.tap()
         searchBar.typeText("Car")
         
-        sleep(5)
+        sleep(4)
         
         app.cells.firstMatch.tap()
         
