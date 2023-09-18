@@ -34,4 +34,19 @@
         XCTAssertEqual(app.firstMatch.images.count, 1)
         XCTAssertTrue(app.firstMatch.staticTexts.count >= 4)
     }
+     
+     func test_search_validateTheSearchErrorFlow() {
+         let app = XCUIApplication()
+         app.launch()
+         
+         let searchBar = app.searchFields["Search"]
+         
+         searchBar.tap()
+         searchBar.typeText("Car980923-@@")
+         
+         sleep(4)
+         
+         XCTAssertEqual(app.cells.count, 0)
+         XCTAssertEqual(app.firstMatch.staticTexts.count, 3)
+     }
  }
