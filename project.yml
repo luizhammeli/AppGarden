@@ -14,7 +14,7 @@ options:
   developmentLanguage: "pt-BR"
   bundleIdPrefix: LuizHammerli.AppGarden
   deploymentTarget:
-    iOS: 16.4  
+    iOS: 16.2
 
 configs:
   Debug: debug
@@ -29,10 +29,13 @@ packages:
     from: 5.0.0
   LHNetworkClient:
     url: https://github.com/luizhammeli/LHNetworkClient
-    from: 1.0.0
+    from: 1.0.1
   LHHelpers:
     url: https://github.com/luizhammeli/LHHelpers
-    from: 1.0.0
+    from: 1.0.2
+  LHDSComponents:
+    url: https://github.com/luizhammeli/LHDSComponents.git
+    from: 1.0.6
 
 targets:
   AppGarden:
@@ -42,6 +45,7 @@ targets:
       - package: SDWebImage
       - package: LHNetworkClient
       - package: LHHelpers
+      - package: LHDSComponents
   AppGardenTests:
     templates:
       - iOSAppTests
@@ -98,10 +102,9 @@ targetTemplates:
     type: bundle.unit-test
     sources: 
       - path: ${target_name}
-      #   excludes:
-      #     - "__Snapshots__"
-      #     - "**/__Snapshots__"
-      # - path: XCTestCase/
+        excludes:
+            - "__Snapshots__"
+            - "**/__Snapshots__"
         createIntermediateGroups: false
         type: group
     info:

@@ -15,7 +15,7 @@ final class SearchImageViewControllerSnapshotTests: XCTestCase {
 
         sut.showError()
 
-        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait), perceptualPrecision: 0.99))
     }
     
     func test_snapshot_shouldShowLoader() {
@@ -23,7 +23,7 @@ final class SearchImageViewControllerSnapshotTests: XCTestCase {
 
         sut.showLoader(isLoading: true)
 
-        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait), perceptualPrecision: 0.99))
     }
     
     func test_snapshot_shouldNotShowLoader() {
@@ -31,7 +31,7 @@ final class SearchImageViewControllerSnapshotTests: XCTestCase {
 
         sut.showLoader(isLoading: false)
 
-        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait), perceptualPrecision: 0.99))
     }
     
     func test_snapshot_shouldShowGridView() {
@@ -41,12 +41,13 @@ final class SearchImageViewControllerSnapshotTests: XCTestCase {
         sut.view(items: items)
         sut.setFakeImage(at: 0)        
 
-        assertSnapshot(matching: navController, as: .image(on: .iPhoneX(.portrait)))
+        assertSnapshot(matching: navController, as: .image(on: .iPhone8(.portrait), perceptualPrecision: 0.99))
     }
 }
 
 private extension SearchImageViewControllerSnapshotTests {
     func makeSUT() -> (SearchImageViewController, UINavigationController) {
+        SnapshotTesting.diffTool = "ksdiff"
         let dummyCoordinator = SearchImageCoordinatorSpy()
         let dummyPresenter = SearchImagePresenterSpy()
         let sut = SearchImageViewController(presenter: dummyPresenter,

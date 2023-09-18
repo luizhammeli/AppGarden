@@ -47,7 +47,7 @@ final class SearchImagePresenter: SearchImagePresenterProtocol {
                 
                 switch result {
                 case .success(let items):
-                    checkSuccessResponse(with: items)
+                    self.checkSuccessResponse(with: items)
                 case .failure:
                     self.delegate?.showError()
                 }

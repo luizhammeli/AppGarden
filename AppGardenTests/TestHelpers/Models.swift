@@ -16,7 +16,7 @@ func makeFakeSearchItemResponse() -> SearchItemResponse {
     let description = "<img src=\"https://live.staticflickr.com/65535/53136382028_850cc2bb55_m.jpg\" width=\"160\" height=\"240\" alt=\"silhouette.with.airpods\" />"
     let item = SearchItemResponse(title: "title",
                                   description: description,
-                                  tags: "1",
+                                  tags: "first second third",
                                   author: "auth",
                                   dateTaken: Date.makeFakeDate(strDate: "28/08/2023"),
                                   media: .init(imageURL: "https://test.com"))
@@ -34,9 +34,10 @@ func makeFakeSearchImageViewModel(with itemResponse: SearchItemResponse) -> Sear
                  date: itemResponse.dateTaken.formatToDefault())
 }
 
-func makeDetailViewModel() -> ImageDetailViewModel {
+func makeDetailViewModel(tags: [String] = ["FirstTest", "SecondTest"]) -> ImageDetailViewModel {
     return ImageDetailViewModel(items: [.init(title: "Title", value: "Value"),
                                         .init(title: "Second Title", value: "Second Value")],
+                                tags: tags,
                                 image: UIImage.make(withColor: .red),
                                 size: CGSize(width: 150, height: 150))
 }
