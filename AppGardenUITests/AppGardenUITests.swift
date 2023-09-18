@@ -1,41 +1,37 @@
-////
-////  AppGardenUITests.swift
-////  AppGardenUITests
-////
-////  Created by Luiz Diniz Hammerli on 23/08/23.
-////
 //
-// import XCTest
+//  AppGardenUITests.swift
+//  AppGardenUITests
 //
-// final class AppGardenUITests: XCTestCase {
+//  Created by Luiz Diniz Hammerli on 23/08/23.
 //
-//    override func setUpWithError() throws {
-//        // Put setup code here. This method is called before the invocation of each test method in the class.
-//
-//        // In UI tests it is usually best to stop immediately when a failure occurs.
-//        continueAfterFailure = false
-//
-//        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-//    }
-//
-//    override func tearDownWithError() throws {
-//        // Put teardown code here. This method is called after the invocation of each test method in the class.
-//    }
-//
-//    func testExample() throws {
-//        // UI tests must launch the application that they test.
-//        let app = XCUIApplication()
-//        app.launch()
-//
-//        // Use XCTAssert and related functions to verify your tests produce the correct results.
-//    }
-//
-//    func testLaunchPerformance() throws {
-//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-//            // This measures how long it takes to launch your application.
-//            measure(metrics: [XCTApplicationLaunchMetric()]) {
-//                XCUIApplication().launch()
-//            }
-//        }
-//    }
-// }
+
+ import XCTest
+
+ final class AppGardenUITests: XCTestCase {
+
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+    }
+
+    override func tearDownWithError() throws {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+
+    // Simple test to validate with the network the entire app flow, as a alternative we can mock our http client to return the fake data or create some test api to return always the same result. The ideia of this test is just show an example of a End to End test, testing the integration between all layers.
+    func test_search_validateTheSearchAndDetailFlow() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let searchBar = app.searchFields["Buscar"]
+        
+        searchBar.tap()
+        searchBar.typeText("Car")
+        
+        sleep(5)
+        
+        app.cells.firstMatch.tap()
+        
+        XCTAssertEqual(app.firstMatch.images.count, 1)
+        XCTAssertTrue(app.firstMatch.staticTexts.count >= 4)
+    }
+ }
