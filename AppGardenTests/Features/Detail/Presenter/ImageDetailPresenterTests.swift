@@ -40,6 +40,12 @@ final class ImageDetailPresenterTests: XCTestCase {
 
         XCTAssertEqual(sut.viewModel?.size, CGSize(width: 160, height: 240))
     }
+    
+    func test_mapData_shouldReturnURL() {
+        let sut = makeSUT()
+
+        XCTAssertEqual(sut.viewModel?.link, URL(string: "https://test.com")!)
+    }
 }
 
 private extension ImageDetailPresenterTests {
