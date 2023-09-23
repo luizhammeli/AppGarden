@@ -13,40 +13,40 @@
         continueAfterFailure = false
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    override func tearDownWithError() throws {}
 
     // Simple test to validate with the network the entire app flow, as a alternative we can mock our http client to return the fake data or create some test api to return always the same result. The ideia of this test is just show an example of a End to End test, testing the integration between all layers.
     func test_search_validateTheSearchAndDetailFlow() {
+        let app = makeSearch(query: "Car")
+
+        sleep(4)
+
+        app.cells.firstMatch.tap()
+
+        XCTAssertEqual(app.firstMatch.images.count, 1)
+        XCTAssertTrue(app.firstMatch.staticTexts.count >= 4)
+    }
+     
+     func test_search_validateTheSearchErrorFlow() {
+         let app = makeSearch(query: "Car980923-@@")
+
+         sleep(4)
+
+         XCTAssertEqual(app.cells.count, 0)
+         XCTAssertEqual(app.firstMatch.staticTexts.count, 3)
+     }
+ }
+
+private extension AppGardenUITests {
+    func makeSearch(query: String) -> XCUIApplication {
         let app = XCUIApplication()
         app.launch()
         
         let searchBar = app.searchFields["Search"]
         
         searchBar.tap()
-        searchBar.typeText("Car")
+        searchBar.typeText(query)
         
-        sleep(4)
-        
-        app.cells.firstMatch.tap()
-        
-        XCTAssertEqual(app.firstMatch.images.count, 1)
-        XCTAssertTrue(app.firstMatch.staticTexts.count >= 4)
+        return app
     }
-     
-     func test_search_validateTheSearchErrorFlow() {
-         let app = XCUIApplication()
-         app.launch()
-         
-         let searchBar = app.searchFields["Search"]
-         
-         searchBar.tap()
-         searchBar.typeText("Car980923-@@")
-         
-         sleep(4)
-         
-         XCTAssertEqual(app.cells.count, 0)
-         XCTAssertEqual(app.firstMatch.staticTexts.count, 3)
-     }
- }
+}
