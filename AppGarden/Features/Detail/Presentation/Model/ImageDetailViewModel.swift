@@ -12,4 +12,5 @@ struct ImageDetailViewModel {
     let tags: [String]
     let image: UIImage
     let size: CGSize
+    let link: URL?
 }

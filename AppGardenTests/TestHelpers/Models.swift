@@ -18,7 +18,8 @@ func makeFakeSearchItemResponse() -> SearchItemResponse {
                                   description: description,
                                   tags: "first second third",
                                   author: "auth",
-                                  dateTaken: Date.makeFakeDate(strDate: "28/08/2023"),
+                                  dateTaken: Date.makeFakeDate(strDate: "28/08/2023"), 
+                                  link: "https://test.com",
                                   media: .init(imageURL: "https://test.com"))
     return item
 }
@@ -27,7 +28,8 @@ func makeFakeSearchImageViewModel(with itemResponse: SearchItemResponse) -> Sear
     let url = URL(string: itemResponse.media.imageURL)
     return .init(imageURL: url,
                  size: CGSize(width: 160, height: 240),
-                 title: itemResponse.title,
+                 title: itemResponse.title, 
+                 link: "https://test.com",
                  accessibilityTitle: "Item 1 Of 1 Title \(itemResponse.title)",
                  tags: itemResponse.tags,
                  author: itemResponse.author,
@@ -39,5 +41,5 @@ func makeDetailViewModel(tags: [String] = ["FirstTest", "SecondTest"]) -> ImageD
                                         .init(title: "Second Title", value: "Second Value")],
                                 tags: tags,
                                 image: UIImage.make(withColor: .red),
-                                size: CGSize(width: 150, height: 150))
+                                size: CGSize(width: 150, height: 150), link: URL(string: "https://test.com"))
 }

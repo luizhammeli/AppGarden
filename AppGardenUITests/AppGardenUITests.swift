@@ -33,6 +33,10 @@
         
         XCTAssertEqual(app.firstMatch.images.count, 1)
         XCTAssertTrue(app.firstMatch.staticTexts.count >= 4)
+        
+        app.navigationBars["Details"].buttons["Share"].tap()
+        app.collectionViews/*@START_MENU_TOKEN@*/.scrollViews.containing(.cell, identifier:"Reminders").element/*[[".scrollViews.containing(.cell, identifier:\"More\").element",".scrollViews.containing(.cell, identifier:\"Freeform\").element",".scrollViews.containing(.cell, identifier:\"Reminders\").element"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
+        app.collectionViews/*@START_MENU_TOKEN@*/.scrollViews.containing(.cell, identifier:"Reminders").element/*[[".scrollViews.containing(.cell, identifier:\"More\").element",".scrollViews.containing(.cell, identifier:\"Freeform\").element",".scrollViews.containing(.cell, identifier:\"Reminders\").element"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeDown()
     }
      
      func test_search_validateTheSearchErrorFlow() {

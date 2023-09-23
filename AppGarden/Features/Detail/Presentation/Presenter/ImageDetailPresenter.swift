@@ -26,6 +26,6 @@ final class ImageDetailPresenter: ImageDetailPresenterProtocol {
                      ImageItemViewModel(title: L10n.imageHeight, value: strHeight),
                      ImageItemViewModel(title: L10n.imageWidth, value: strWidth)]
         let tags = viewModel.tags.split(separator: " ").map { String($0) }
-        self.viewModel = ImageDetailViewModel(items: items, tags: tags, image: image, size: viewModel.size)
+        self.viewModel = ImageDetailViewModel(items: items, tags: tags, image: image, size: viewModel.size, link: URL(string: viewModel.link))
     }
 }

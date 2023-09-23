@@ -67,7 +67,8 @@ final class SearchImagePresenter: SearchImagePresenterProtocol {
 
             return SearchImageViewModel(imageURL: url,
                                         size: size,
-                                        title: item.title,
+                                        title: item.title, 
+                                        link: item.link,
                                         accessibilityTitle: accessibilityTitle,
                                         tags: item.tags,
                                         author: item.author,

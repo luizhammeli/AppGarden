@@ -11,6 +11,7 @@ struct SearchImageViewModel: Equatable {
     let imageURL: URL?
     let size: CGSize
     let title: String
+    let link: String
     let accessibilityTitle: String
     let tags: String
     let author: String

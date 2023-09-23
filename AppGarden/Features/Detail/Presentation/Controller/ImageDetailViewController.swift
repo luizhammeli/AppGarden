@@ -9,7 +9,7 @@ import LHHelpers
 import UIKit
 
 final class ImageDetailViewController: CustomViewController<ImageDetailView> {
-    let presenter: ImageDetailPresenterProtocol
+    private let presenter: ImageDetailPresenterProtocol
 
     init(presenter: ImageDetailPresenterProtocol) {
         self.presenter = presenter
@@ -29,5 +29,15 @@ final class ImageDetailViewController: CustomViewController<ImageDetailView> {
     private func setupNavigationBar() {
         navigationItem.title = L10n.detailsScreenTitle
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .done, target: self, action: #selector(handleShare))
+    }
+    
+    @objc private func handleShare() {
+        guard let image = presenter.viewModel?.image, let secondActivityItem = presenter.viewModel?.link else { return }
+
+        let activityViewController = UIActivityViewController(activityItems: [secondActivityItem, image], applicationActivities: nil)
+        activityViewController.isModalInPresentation = true
+
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }
