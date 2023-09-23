@@ -9,7 +9,7 @@ import LHHelpers
 import UIKit
 
 final class ImageDetailViewController: CustomViewController<ImageDetailView> {
-    let presenter: ImageDetailPresenterProtocol
+    private let presenter: ImageDetailPresenterProtocol
 
     init(presenter: ImageDetailPresenterProtocol) {
         self.presenter = presenter
