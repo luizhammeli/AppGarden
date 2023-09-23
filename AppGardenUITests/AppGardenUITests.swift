@@ -36,8 +36,8 @@ final class AppGardenUITests: XCTestCase {
         app.cells.firstMatch.tap()
             
         app.navigationBars["Details"].buttons["Share"].tap()
-        app.collectionViews/*@START_MENU_TOKEN@*/.scrollViews.containing(.cell, identifier:"Reminders").element/*[[".scrollViews.containing(.cell, identifier:\"More\").element",".scrollViews.containing(.cell, identifier:\"Freeform\").element",".scrollViews.containing(.cell, identifier:\"Reminders\").element"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
-        app.collectionViews/*@START_MENU_TOKEN@*/.scrollViews.containing(.cell, identifier:"Reminders").element/*[[".scrollViews.containing(.cell, identifier:\"More\").element",".scrollViews.containing(.cell, identifier:\"Freeform\").element",".scrollViews.containing(.cell, identifier:\"Reminders\").element"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeDown()
+        app.collectionViews.scrollViews.element.swipeUp()
+        app.collectionViews.scrollViews.element.swipeDown()
     }
     
     func test_search_validateTheSearchErrorFlow() {
