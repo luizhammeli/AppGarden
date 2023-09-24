@@ -17,10 +17,11 @@ struct SearchItemResponse: Codable, Equatable {
     let tags: String
     let author: String
     let dateTaken: Date
+    let link: String
     let media: MediaReponse
 
     enum CodingKeys: String, CodingKey {
-        case title, description, tags, author, media
+        case title, description, tags, author, media, link
         case dateTaken = "date_taken"
     }
 }
