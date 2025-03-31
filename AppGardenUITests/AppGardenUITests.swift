@@ -29,16 +29,16 @@ final class AppGardenUITests: XCTestCase {
         app.navigationBars["Details"].buttons["App Garden"].tap()
     }
     
-//    func test_detail_validateShareButton() {
-//        let app = makeSearch(query: "Car")
-//        sleep(4)
-//        
-//        app.cells.firstMatch.tap()
-//            
-//        app.navigationBars["Details"].buttons["Share"].tap()
-//        app.collectionViews.scrollViews.element.swipeUp()
-//        app.collectionViews.scrollViews.element.swipeDown()
-//    }
+    func test_detail_validateShareButton() {
+        let app = makeSearch(query: "Car")
+        sleep(4)
+        
+        app.cells.firstMatch.tap()
+            
+        app.navigationBars["Details"].buttons["Share"].tap()
+        app.collectionViews.scrollViews.element.swipeUp()
+        app.collectionViews.scrollViews.element.swipeDown()
+    }
     
     func test_search_validateTheSearchErrorFlow() {
         let app = makeSearch(query: "Car980923-@@")

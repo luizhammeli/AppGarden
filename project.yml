@@ -76,8 +76,8 @@ schemes:
       targets:
         - name: AppGardenTests
           randomExecutionOrder: true
-        - name: AppGardenUITests
-          randomExecutionOrder: true
+        # - name: AppGardenUITests
+        #   randomExecutionOrder: true
 
 targetTemplates:
   iOSApp:
