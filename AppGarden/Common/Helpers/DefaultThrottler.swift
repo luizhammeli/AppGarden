@@ -25,9 +25,7 @@ final class DefaultThrottler: Throttler {
     func throttle(completion: @escaping () -> Void) {
         cancel()
 
-        let item = DispatchWorkItem {
-            completion()
-        }
+        let item = DispatchWorkItem { completion() }
         self.workItem = item
 
         queue.asyncAfter(deadline: .now() + Double(delay), execute: item)
