@@ -27,7 +27,7 @@ jobs:
     - name: Xcode version
       run: /usr/bin/xcodebuild -version
     
-    - uses: xavierLowmiller/xcodegen-action@1.1.2
+    - uses: xavierLowmiller/xcodegen-action@1.2.4
       with:
         spec: project.yml
         quiet: true
