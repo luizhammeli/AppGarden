@@ -46,7 +46,6 @@ extension SearchImageViewController {
     }
     
     func setFakeImage(at index: Int) {
-        _ = cell(index: index)
         customView.layoutIfNeeded()
         let cell = customView.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? ImageGridCell
         (cell?.subviews.first as? UIImageView)?.backgroundColor = .red

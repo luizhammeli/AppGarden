@@ -45,7 +45,7 @@ final class AppGardenUITests: XCTestCase {
         sleep(4)
         
         XCTAssertEqual(app.cells.count, 0)
-        XCTAssertEqual(app.firstMatch.staticTexts.count, 3)
+        XCTAssertEqual(app.firstMatch.staticTexts.count, 5)
     }
 }
 
